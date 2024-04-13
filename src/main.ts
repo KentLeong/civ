@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config();
-import { CommandClient } from "./client";
+import { CommandClient } from "./models/client";
 import { Events } from "discord.js";
 import fs from "fs";
 import path from "path";

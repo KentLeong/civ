@@ -1,5 +1,5 @@
 import { Client, Collection, GatewayIntentBits } from "discord.js";
-import { Command } from "./types";
+import { Command } from "../types";
 
 // extends client class to add a commands collection
 export class CommandClient extends Client {
