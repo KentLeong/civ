@@ -247,7 +247,7 @@ export const Civs:Array<Civilization> = [
     leader: "Montezuma",
     ability: {
       name: "Sacrificial Captives",
-      description: "Earn 100% of foe’s Strength as Culture from kills."
+      description: "Earn 100% of foe's Strength as Culture from kills."
     },
     unique: [
       {
@@ -398,7 +398,7 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Pracinha",
         replaces: "Infantry",
-        description: "80 Strength (from 70, vs. 70) and earns 100% of foe’s Strength as points towards a Golden Age from kills. Gains a +20% Combat Bonus outside of friendly territory."
+        description: "80 Strength (from 70, vs. 70) and earns 100% of foe's Strength as points towards a Golden Age from kills. Gains a +20% Combat Bonus outside of friendly territory."
       },
       {
         type: "Improvement",
@@ -422,7 +422,7 @@ export const Civs:Array<Civilization> = [
         type: "Building",
         name: "BMPC Plant",
         replaces: "Oil Refineries",
-        description: "In addition to the typical perks, provides +3 Gold and +5 Production. Doesn’t require nearby Oil to build. Upon completion, provides 2 Oil resources."
+        description: "In addition to the typical perks, provides +3 Gold and +5 Production. Doesn't require nearby Oil to build. Upon completion, provides 2 Oil resources."
       },
       {
         type: "Improvement",
@@ -522,7 +522,7 @@ export const Civs:Array<Civilization> = [
       },
       {
         type: "Building",
-        name: "Tim Horton’s",
+        name: "Tim Horton's",
         replaces: "Stock Exchange",
         description: "In addition to the typical perks, provides +2 Happiness in the City and +1 Gold to river tiles worked by this City. Significantly cheaper to construct (200 hammers vs. 280)."
       }
@@ -548,7 +548,7 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "African Forest Elephant",
         replaces: "Horsemen",
-        description: "Does not require Horses to construct. 14 Strength (vs. 12), but 3 Movement (vs. 4). Possesses the Feared Elephant (enemy Units adjacent to this Unit receive a -10% combat penalty), Great Generals II (earns Great General points faster) promotion and Hannibal’s Charge (+20% Strength when initiating combat from a higher elevation than foe; enemy Units will retreat if they receive more damage than this Unit, this Unit deals +50% damage to defenders incapable of retreat). (Feared Elephant will not stack.)"
+        description: "Does not require Horses to construct. 14 Strength (vs. 12), but 3 Movement (vs. 4). Possesses the Feared Elephant (enemy Units adjacent to this Unit receive a -10% combat penalty), Great Generals II (earns Great General points faster) promotion and Hannibal's Charge (+20% Strength when initiating combat from a higher elevation than foe; enemy Units will retreat if they receive more damage than this Unit, this Unit deals +50% damage to defenders incapable of retreat). (Feared Elephant will not stack.)"
       }
     ],
     bias: ["Coast"],
@@ -572,7 +572,7 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Pictish Warrior",
         replaces: "Spearmen",
-        description: "Earn 100% of your foe’s Combat Strength as Faith from kills (previously 50%). Gains a +20% Combat Bonus outside of friendly territory and may pillage without movement penalties."
+        description: "Earn 100% of your foe's Combat Strength as Faith from kills (previously 50%). Gains a +20% Combat Bonus outside of friendly territory and may pillage without movement penalties."
       }
     ],
     bias: ["Forest"],
@@ -660,14 +660,14 @@ export const Civs:Array<Civilization> = [
     leader: "Fidel Castro",
     ability: {
       name: "¡Viva la Revolución!",
-      description: "Receive +1 Culture per turn in your Capital for every 5 Culture per turn generated in the Capital of Civilizations you’ve met. Upon selecting your first Ideology Tenet, receive 2 Guerrilleros in the Capital. Receive -50% less Unhappiness from Ideology pressure."
+      description: "Receive +1 Culture per turn in your Capital for every 5 Culture per turn generated in the Capital of Civilizations you've met. Upon selecting your first Ideology Tenet, receive 2 Guerrilleros in the Capital. Receive -50% less Unhappiness from Ideology pressure."
     },
     unique: [
       {
         type: "Unit",
         name: "Guerrillero",
         replaces: "Great War Infantry",
-        description: "Available to produce only after the adoption of Cuba’s first Ideology Tenet (as opposed to Replaceable Parts). Weaker (44 Strength vs. 50), but boasts 3 Movement (vs. 2) and can be built for significantly less (176 hammers vs. 221)."
+        description: "Available to produce only after the adoption of Cuba's first Ideology Tenet (as opposed to Replaceable Parts). Weaker (44 Strength vs. 50), but boasts 3 Movement (vs. 2) and can be built for significantly less (176 hammers vs. 221)."
       },
       {
         type: "Building",
@@ -745,7 +745,7 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Ship of the Line",
         replaces: "Frigate",
-        description: "+1 Sight. 25 Combat Strength (from 30, vs. 25) and 30 Ranged Strength (from 35, vs. 27). (The Ship of the Line has 5 Movement at base (vs. a Frigate’s 6), increasing effectively to 7 due to Sun Never Sets.)"
+        description: "+1 Sight. 25 Combat Strength (from 30, vs. 25) and 30 Ranged Strength (from 35, vs. 27). (The Ship of the Line has 5 Movement at base (vs. a Frigate's 6), increasing effectively to 7 due to Sun Never Sets.)"
       }
     ],
     bias: ["Coast"],
@@ -813,7 +813,7 @@ export const Civs:Array<Civilization> = [
         replaces: "Nothing",
         description: `
         Provides +2 Science, +2 Culture and +1 Gold, increasing by +1 Culture and +2 Gold at Flight, and +1 Science after adopting the Free Thought policy. Provides the same defensive bonus as a Fort (+50% bonus when foe initiates combat).
-        Chateaus must be constructed adjacent to a luxury resource, non-adjacent to another Chateau, and not atop an existing Resource tile. (Resources discovered after the construction of the Chateau will provide their yield bonus to the tile, but the Chateau will not ‘connect’ those resources.)
+        Chateaus must be constructed adjacent to a luxury resource, non-adjacent to another Chateau, and not atop an existing Resource tile. (Resources discovered after the construction of the Chateau will provide their yield bonus to the tile, but the Chateau will not ‘connect' those resources.)
         `
       },
       {
@@ -934,7 +934,7 @@ export const Civs:Array<Civilization> = [
         type: "Building",
         name: "Yam Route",
         replaces: "Caravansaries",
-        description: "Available at The Wheel instead of Horseback Riding. Retains Trade Route perks but doesn’t provide Gold, instead providing +3 Science. Allows Airlifting between Cities with Yam Routes."
+        description: "Available at The Wheel instead of Horseback Riding. Retains Trade Route perks but doesn't provide Gold, instead providing +3 Science. Allows Airlifting between Cities with Yam Routes."
       },
       {
         type: "Unit",
@@ -1580,7 +1580,7 @@ export const Civs:Array<Civilization> = [
     leader: "Pacal",
     ability: {
       name: "The Long Count",
-      description: "After researching Theology, choose a Great Person at the end of each Mayan calendar cycle (every 394 in-game ‘years’). Each type of Great Person may only be chosen once. (Great People chosen through Long Count cycles will delay the generation of the next naturally earned Great Person.) (Long Count intervals are based on fixed intervals regardless of when Theology was researched. Currently, these intervals are (on Quick speed): Turns 22 / 28 / 35 / 42 / 48 / 57 / 67 / 77 / 88 / 102 / 122 / 152)"
+      description: "After researching Theology, choose a Great Person at the end of each Mayan calendar cycle (every 394 in-game ‘years'). Each type of Great Person may only be chosen once. (Great People chosen through Long Count cycles will delay the generation of the next naturally earned Great Person.) (Long Count intervals are based on fixed intervals regardless of when Theology was researched. Currently, these intervals are (on Quick speed): Turns 22 / 28 / 35 / 42 / 48 / 57 / 67 / 77 / 88 / 102 / 122 / 152)"
     },
     unique: [
       {
@@ -1734,7 +1734,7 @@ export const Civs:Array<Civilization> = [
         description: `
         May not attack. 3 Movement (vs. 2).
         May discover Cities from an additional +3 tiles away. When this Unit discovers a Capital or City-State, gain +10 Gold for the Empire. Will not upgrade from Ruins.
-        (The Zabonah must make Sight contact with players and City-States to ‘meet’ them and will not ‘meet’ when discovering Cities only due to its expanded range.)
+        (The Zabonah must make Sight contact with players and City-States to ‘meet' them and will not ‘meet' when discovering Cities only due to its expanded range.)
         `
       },
       {
@@ -1792,7 +1792,7 @@ export const Civs:Array<Civilization> = [
         name: "Defender",
         replaces: "Ironclad",
         description: `
-        50 Strength (vs. 45). Earns a +15% bonus inside friendly territory and ignores Zone of Control movement penalties when within 2 tiles of a friendly City. In addition to the typical traits, arrives with Cover I (gain a +33% bonus defending against Ranged attacks). Doesn’t require Coal.
+        50 Strength (vs. 45). Earns a +15% bonus inside friendly territory and ignores Zone of Control movement penalties when within 2 tiles of a friendly City. In addition to the typical traits, arrives with Cover I (gain a +33% bonus defending against Ranged attacks). Doesn't require Coal.
         `
       },
       {
@@ -1800,7 +1800,7 @@ export const Civs:Array<Civilization> = [
         name: "Maori Battalion",
         replaces: "Infantry",
         description: `
-        Possesses the promotions and traits of a Marine. Receive a Combat Bonus the further this unit is away from the Capital (+2% per tile to a maximum of +40%). Each Battalion stationed within a City-State’s borders earns +1 Influence with that City-State each turn.
+        Possesses the promotions and traits of a Marine. Receive a Combat Bonus the further this unit is away from the Capital (+2% per tile to a maximum of +40%). Each Battalion stationed within a City-State's borders earns +1 Influence with that City-State each turn.
         `
       }
     ],
@@ -1909,10 +1909,10 @@ export const Civs:Array<Civilization> = [
       },
       {
         type: "Building",
-        name: "Minaa’",
+        name: "Minaa'",
         replaces: "Harbor",
         description: `
-        Enemy Naval Units take 30 damage if they end their turn next to this City. Provides +5 City Strength, and +2 Production for each Trade Route departing the City. Allows units to Airlift between Cities with Minaa’s.
+        Enemy Naval Units take 30 damage if they end their turn next to this City. Provides +5 City Strength, and +2 Production for each Trade Route departing the City. Allows units to Airlift between Cities with Minaa's.
         `
       }
     ],
@@ -1993,7 +1993,7 @@ export const Civs:Array<Civilization> = [
       },
       {
         type: "Building",
-        name: "Saint Peter’s Basilica",
+        name: "Saint Peter's Basilica",
         replaces: "Grand Temple",
         description: `
         In addition to the typical perks, provides a free Cathedral in the City and spawns a Great Prophet near the City.
@@ -2044,7 +2044,7 @@ export const Civs:Array<Civilization> = [
         name: "Gerilya",
         replaces: "Expeditionary Forces",
         description: `
-        Boasts a whopping 55 Strength (vs. 40). In addition to the Force’s innate promotions, the Gerilya arrives with Volley (gain a +50% bonus against Fortified Units and Cities), 3 Movement (vs. 2), +3 additional Movement while embarked, and +1 Sight while embarked.
+        Boasts a whopping 55 Strength (vs. 40). In addition to the Force's innate promotions, the Gerilya arrives with Volley (gain a +50% bonus against Fortified Units and Cities), 3 Movement (vs. 2), +3 additional Movement while embarked, and +1 Sight while embarked.
         `
       },
       {
@@ -2108,7 +2108,7 @@ export const Civs:Array<Civilization> = [
         name: "Winged Hussar",
         replaces: "Lancer",
         description: `
-        28 Strength (vs. 25) and 5 Movement (vs. 4). In addition to the Lancer’s innate promotions, arrives with the Heavy Charge (enemy Units will retreat if they receive more damage than this Unit; this Unit deals +50% damage to defenders incapable of retreat) promotion. No longer arrives with Shock (+15% bonus vs. foes in Open terrain).
+        28 Strength (vs. 25) and 5 Movement (vs. 4). In addition to the Lancer's innate promotions, arrives with the Heavy Charge (enemy Units will retreat if they receive more damage than this Unit; this Unit deals +50% damage to defenders incapable of retreat) promotion. No longer arrives with Shock (+15% bonus vs. foes in Open terrain).
         `
       }
     ],
@@ -2156,7 +2156,7 @@ export const Civs:Array<Civilization> = [
         name: "Feitoria",
         replaces: "Harbor",
         description: `
-        In addition to the typical perks, provides +1 Gold from Coastal resources. Naval units trained in this City receive +15 XP. Cheaper to construct (67 hammers vs. 80) and doesn’t require Gold maintenance.
+        In addition to the typical perks, provides +1 Gold from Coastal resources. Naval units trained in this City receive +15 XP. Cheaper to construct (67 hammers vs. 80) and doesn't require Gold maintenance.
         `
       },
       {
@@ -2164,7 +2164,7 @@ export const Civs:Array<Civilization> = [
         name: "Nau",
         replaces: "Caravel",
         description: `
-        6 Movement (vs. 5). In addition to the typical perks, the Nau may perform a unique action when adjacent to foreign territory, gaining Gold for the empire and XP for the Unit scaling with the distance from Portugal’s Capital.
+        6 Movement (vs. 5). In addition to the typical perks, the Nau may perform a unique action when adjacent to foreign territory, gaining Gold for the empire and XP for the Unit scaling with the distance from Portugal's Capital.
         `
       }
     ],
@@ -2519,7 +2519,7 @@ export const Civs:Array<Civilization> = [
         replaces: "Stadium",
         description: `
         Available at Electricity (instead of Refrigeration). Provides +3 Happiness (vs. 2), +3 Culture, and +5 Tourism. Provides an additional +5 Tourism and +2 Gold for every Mountain within 3 tiles of the City; this bonus will only stack 5 times.
-        Half as costly to construct (165 hammers vs. 330) and doesn’t require Gold maintenance. Doesn’t require a Zoo to construct.
+        Half as costly to construct (165 hammers vs. 330) and doesn't require Gold maintenance. Doesn't require a Zoo to construct.
         `
       },
       {
@@ -2527,7 +2527,7 @@ export const Civs:Array<Civilization> = [
         name: "Reisläufer Post",
         replaces: "Armory",
         description: `
-        Trained units receive the Mountaineer promotion (+10% Strength and +1 Movement at the start of turn when adjacent to Mountain tiles). Doesn’t require Gold maintenance. Spawns a Reisläufer upon completion.
+        Trained units receive the Mountaineer promotion (+10% Strength and +1 Movement at the start of turn when adjacent to Mountain tiles). Doesn't require Gold maintenance. Spawns a Reisläufer upon completion.
         `
       },
       {
@@ -2759,7 +2759,7 @@ export const Civs:Array<Civilization> = [
         replaces: "Armory",
         description: `
         In addition to the typical perks, provides +1 Food, +1 Culture and
-        +1 Production from Marsh tiles and +1 Culture from Jungle tiles. All Melee Units trained in this City receive the Woodsman promotion (units move twice as fast through Forest and Jungle tiles). Doesn’t require Barracks to construct.
+        +1 Production from Marsh tiles and +1 Culture from Jungle tiles. All Melee Units trained in this City receive the Woodsman promotion (units move twice as fast through Forest and Jungle tiles). Doesn't require Barracks to construct.
         `
       }
     ],
@@ -2839,7 +2839,7 @@ export const Civs:Array<Civilization> = [
         name: "Stone Mason",
         replaces: "Stoneworks",
         description: `
-        +2 Culture at Masonry, and otherwise retains the typical perks. Doesn’t require any nearby resources to construct.
+        +2 Culture at Masonry, and otherwise retains the typical perks. Doesn't require any nearby resources to construct.
         `
       }
     ],
