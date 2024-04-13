@@ -1,5 +1,7 @@
+import { InteractionResponse } from "discord.js";
+
 export interface Command {
   name: string;
   description: string;
-  execute: (interaction: any) => Promise<void>;
+  execute: (message: InteractionResponse, args: any) => Promise<void>;
 }
