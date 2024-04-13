@@ -4,7 +4,8 @@
   "description": "",
   "main": "dist/main.js",
   "scripts": {
-    "start": "node dist/main.js",
+    "clean": "rm -rf dist",
+    "start": "rm -rf dist && tsc && node dist/main.js",
     "dev": "ts-node src/main.ts",
     "build": "tsc"
   },
