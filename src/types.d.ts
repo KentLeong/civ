@@ -16,9 +16,11 @@ export interface Civilization {
   unique: {
     type: UniqueType;
     name: string;
+    replaces: string;
     description: string;
   }[];
-  bias: Bias;
+  bias: Terrain[];
+  avoid: Terrain[];
 }
-type UniqueType = "Building" | "Unit";
-type Bias = "None" | "Aggressive" | "Defensive" | "Expansionist" | "Cultural" | "Scientific" | "Religious";
+export type UniqueType = "Building" | "Unit" | "Improvement" | "Great Person" | "Promotion";
+export type Terrain = "Hills" | "Desert" | "Jungle" | "Tundra" | "Coast" | "Forest" | "Plains" | "Grassland" | "Wetlands" | "River";
