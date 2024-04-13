@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config();
+import mongoose from "mongoose";
 import { CommandClient } from "./models/client";
 import { Events } from "discord.js";
 import fs from "fs";
@@ -50,4 +51,9 @@ client.on(Events.InteractionCreate, async interaction => {
   }
 });
 
-client.login(process.env.DISCORD_TOKEN);
+client.login(process.env.DISCORD_TOKEN || "");
+const mongo = mongoose.createConnection(process.env.MONGO_CRED || "").useDb("civ")
+mongo.on("error", console.error.bind(console, "connection error:"));
+mongo.once("open", () => {
+  console.log("Connected to MongoDB");
+});
