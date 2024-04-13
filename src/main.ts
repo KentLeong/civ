@@ -1,22 +1,19 @@
 import dotenv from "dotenv";
 dotenv.config();
-import { Client, Collection, Events, GatewayIntentBits } from "discord.js";
+import { CommandClient } from "./client";
+import { Events } from "discord.js";
+import { readdirSync} from "fs";
+import { join } from "path";
 import { Command } from "./types";
-import fs from "fs";
-import path from "node:path";
-
-class CommandClient extends Client {
-  commands: Collection<string, Command> = new Collection();
-
-  constructor() {
-    super({
-      intents: GatewayIntentBits.Guilds,
-    });
-    this.commands = new Collection();
-  }
-}
 
 const client = new CommandClient();
+const commandFiles = readdirSync(join(__dirname, "commands"))
+  .filter(file => file.endsWith(".ts") || file.endsWith(".js"));
+
+for (const file of commandFiles) {
+  const command: Command = require(join(__dirname, "commands", file)).default;
+  client.commands.set(command.name, command);
+}
 
 client.on(Events.ClientReady, () => {
   console.log("Ready!");
