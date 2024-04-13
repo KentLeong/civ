@@ -6,6 +6,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "start": "rm -rf dist && tsc && node dist/scripts/deployCommands.js && node dist/main.js",
+    "import-civs": "node dist/scripts/importCivs.js",
     "dev": "ts-node src/main.ts",
     "build": "tsc"
   },

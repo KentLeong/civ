@@ -5,6 +5,8 @@ import { CommandClient } from "./models/client";
 import { Events } from "discord.js";
 import fs from "fs";
 import path from "path";
+import { importCivs } from "./scripts/importCivs";
+import { CivSchema } from "./models/civ";
 
 const client = new CommandClient();
 // registers all commands
@@ -53,7 +55,10 @@ client.on(Events.InteractionCreate, async interaction => {
 
 client.login(process.env.DISCORD_TOKEN || "");
 const mongo = mongoose.createConnection(process.env.MONGO_CRED || "").useDb("civ")
+
+export var Civ = mongo.model("Civilization", CivSchema);
 mongo.on("error", console.error.bind(console, "connection error:"));
-mongo.once("open", () => {
+mongo.once("open", async () => {
   console.log("Connected to MongoDB");
+  await importCivs();
 });
