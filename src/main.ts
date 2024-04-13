@@ -10,4 +10,8 @@ client.on(Events.ClientReady, () => {
   console.log("Ready!");
 });
 
+client.on(Events.MessageCreate, (message) => {  
+
+});
+
 client.login(process.env.DISCORD_TOKEN);
