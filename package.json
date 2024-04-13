@@ -4,8 +4,8 @@
   "description": "",
   "main": "dist/main.js",
   "scripts": {
-    "start": "node dist/index.js",
-    "dev": "ts-node src/index.ts",
+    "start": "node dist/main.js",
+    "dev": "ts-node src/main.ts",
     "build": "tsc"
   },
   "dependencies": {
