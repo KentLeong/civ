@@ -5,7 +5,7 @@ import fs from "fs";
 import path from "path";
 
 const commands: any = [];
-const foldersPath = path.join(__dirname, 'commands');
+const foldersPath = path.join(__dirname, "..", 'commands');
 const commandFolders = fs.readdirSync(foldersPath);
 
 const DiscordToken: string = process.env.DISCORD_TOKEN || "";
