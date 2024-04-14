@@ -6,6 +6,11 @@ export interface Command {
   execute: (msg: any, args: any) => Promise<void>;
 }
 
+export interface User {
+  name: string;
+  discordId: string;
+}
+
 export interface Civilization {
   name: string;
   leader: string;
