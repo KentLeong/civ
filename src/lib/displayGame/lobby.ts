@@ -17,7 +17,7 @@ export default async (interaction: any, game: Game) => {
   });
   description += "\nYou can have up to two bans using the `/ban` command."
   embed.setDescription(description);
-  const message = await interaction.client.channels.cache.get(process.env.CHANNEL_ID || "")?.messages.fetch(game.messageId);
+  const message = await interaction.client.channels.cache.get(process.env.GAME_CHANNEL_ID || "")?.messages.fetch(game.messageId);
   if (!message) {
     await interaction.reply({ content: "Game not found.", ephemeral: true });
     expireReply(interaction);
