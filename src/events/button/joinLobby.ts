@@ -1,7 +1,8 @@
 import { User, Game } from "../../mongo";
 import { displayGame, isPlayerInLobby, expireReply } from "../../lib";
+import { ButtonInteraction } from "discord.js";
 
-export default async (interaction: any) => {
+export default async (interaction: ButtonInteraction) => {
   const user = await User.findOne({ discordId: interaction.user.id });
   if (!user) {
     await interaction.reply({ content: "You need to sign up first.", ephemeral: true });
@@ -50,6 +51,7 @@ export default async (interaction: any) => {
   await game.save();
 
   await displayGame(interaction, game);
-  await interaction.reply({ content: "You have joined the game.", ephemeral: true});
-  expireReply(interaction);
+
+  await interaction.deferReply({ ephemeral: true})
+  await interaction.deleteReply();
 }

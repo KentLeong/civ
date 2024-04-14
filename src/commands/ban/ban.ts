@@ -96,7 +96,7 @@ module.exports = {
 
       await displayGame(interaction, game);
     }
-    await interaction.reply({ content: "Bans set.", ephemeral: true});
-    expireReply(interaction);
+    await interaction.deferReply({ ephemeral: true})
+    await interaction.deleteReply();
   },
 }

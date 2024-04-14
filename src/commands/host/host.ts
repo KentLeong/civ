@@ -60,7 +60,7 @@ module.exports = {
     });
 
     await displayGame(interaction, newGame);
-    await interaction.reply({ content: "Game lobby created.", ephemeral: true});
-    expireReply(interaction);
+    await interaction.deferReply({ ephemeral: true})
+    await interaction.deleteReply();
   },
 }

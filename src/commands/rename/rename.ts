@@ -34,7 +34,7 @@ module.exports = {
     }
 
     await User.updateOne({ discordId: user?.id }, { name: name });
-    await interaction.reply({ content: "User renamed.", ephemeral: true});
-    expireReply(interaction);
+    await interaction.deferReply({ ephemeral: true})
+    await interaction.deleteReply();
   },
 }

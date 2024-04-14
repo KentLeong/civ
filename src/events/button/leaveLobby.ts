@@ -38,6 +38,6 @@ export default async (interaction: any) => {
   await game.save();
 
   await displayGame(interaction, game);
-  await interaction.reply({ content: "You have left the game.", ephemeral: true })
-  expireReply(interaction);
+  await interaction.deferReply({ ephemeral: true})
+  await interaction.deleteReply();
 }
