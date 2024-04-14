@@ -12,13 +12,12 @@ module.exports = {
       return;
     }
 
-    // checks if user is already hosting a game
+    // checks if there is a game already
     const exists = await Game.findOne({
-      host: interaction.user.id,
-      $or: [{ state: "lobby" }, { state: "started" }, {state: "draft"}]
+      $or: [{ state: "lobby" }, {state: "draft"}]
     });
     if (exists) {
-      await interaction.reply("You are already hosting a game.");
+      await interaction.reply("There is a lobby already in progress.");
       return;
     }
 
