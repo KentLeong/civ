@@ -1,5 +1,5 @@
 import { User, Game } from "../../mongo";
-import { lobby, isPlayerInLobby, expireReply } from "../../lib";
+import { displayGame, isPlayerInLobby, expireReply } from "../../lib";
 
 export default async (interaction: any) => {
   const user = await User.findOne({ discordId: interaction.user.id });
@@ -24,11 +24,11 @@ export default async (interaction: any) => {
 
   let exists = await isPlayerInLobby(game, interaction);
   if (!exists) {
-    await interaction.reply("You are not in the game.", { ephemeral: true });
+    await interaction.reply({ content: "You are not in the game.", ephemeral: true });
     expireReply(interaction);
     return;
   } else if (game.host === interaction.user.id) {
-    await interaction.reply("You are the host. You cannot leave the game.", { ephemeral: true });
+    await interaction.reply({ content: "You are the host. You cannot leave the game.", ephemeral: true });
     expireReply(interaction);
     return;
   }
@@ -37,12 +37,7 @@ export default async (interaction: any) => {
   game.players = game.players.filter((player) => player.discordId !== interaction.user.id);
   await game.save();
 
-  // update message
-  let display = await lobby(game);
-  interaction.message.edit({
-    embeds: [display]
-  });
-
+  await displayGame(interaction, game);
   await interaction.reply({ content: "You have left the game.", ephemeral: true })
   expireReply(interaction);
 }

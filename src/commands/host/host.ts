@@ -1,7 +1,6 @@
-import { SlashCommandBuilder, ChatInputCommandInteraction, ButtonBuilder, ButtonStyle, ActionRowBuilder } from "discord.js";
+import { SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
 import { Game, User } from "../../mongo"
-import { perm, lobby, expireReply } from "../../lib";
-import { set } from "mongoose";
+import { perm, expireReply, displayGame } from "../../lib";
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -39,7 +38,7 @@ module.exports = {
     const newGame = await Game.create({
       id: gameCount,
       host: interaction.user.id,
-      state: "lobby",
+      state: "init",
       players: [
         {
           discordId: interaction.user.id,
@@ -60,29 +59,7 @@ module.exports = {
       }
     });
 
-    const join = new ButtonBuilder()
-      .setCustomId("joinLobby")
-      .setLabel("Join")
-      .setStyle(ButtonStyle.Primary);
-
-    const leave = new ButtonBuilder()
-      .setCustomId("leaveLobby")
-      .setLabel("Leave")
-      .setStyle(ButtonStyle.Danger);
-
-    const draft = new ButtonBuilder()
-      .setCustomId("draftLobby")
-      .setLabel("Draft")
-      .setStyle(ButtonStyle.Success);
-
-    const row: any = new ActionRowBuilder()
-      .addComponents(join, leave, draft);
-    let display = await lobby(newGame);
-    await interaction.channel?.send({ embeds: [display], components: [row]})
-      .then(async (msg) => {
-        newGame.messageId = msg.id;
-        await newGame.save();
-      });
+    await displayGame(interaction, newGame);
     await interaction.reply({ content: "Game lobby created.", ephemeral: true});
     expireReply(interaction);
   },

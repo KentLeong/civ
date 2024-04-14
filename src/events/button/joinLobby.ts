@@ -1,5 +1,5 @@
 import { User, Game } from "../../mongo";
-import { lobby, isPlayerInLobby, expireReply } from "../../lib";
+import { displayGame, isPlayerInLobby, expireReply } from "../../lib";
 
 export default async (interaction: any) => {
   const user = await User.findOne({ discordId: interaction.user.id });
@@ -24,14 +24,14 @@ export default async (interaction: any) => {
 
   let exists = await isPlayerInLobby(game, interaction);
   if (exists) {
-    await interaction.reply("You are already in the game.", { ephemeral: true });
+    await interaction.reply({ content: "You are already in the game.", ephemeral: true });
     expireReply(interaction);
     return false;
   }
 
   const playerCount = game.players.length;
   if (playerCount >= 8) {
-    await interaction.reply("Game is full.");
+    await interaction.reply({ content: "Game is full.", ephemeral: true });
     expireReply(interaction);
     return;
   }
@@ -49,12 +49,7 @@ export default async (interaction: any) => {
   game.players.push(newPlayer);
   await game.save();
 
-  // update message
-  let display = await lobby(game);
-  interaction.message.edit({
-    embeds: [display]
-  });
-
-  await interaction.reply("You have joined the game.", { ephemeral: true });
+  await displayGame(interaction, game);
+  await interaction.reply({ content: "You have joined the game.", ephemeral: true});
   expireReply(interaction);
 }

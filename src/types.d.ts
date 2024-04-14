@@ -20,7 +20,7 @@ export interface Game {
   settings: GameSettings;
 }
 
-type GameState = "lobby" | "started" | "draft" | "ingame" | "done";
+type GameState = "init" | "lobby" | "started" | "draft" | "ingame" | "done";
 
 export interface GameStats {
   season: number;
