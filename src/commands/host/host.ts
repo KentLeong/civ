@@ -56,9 +56,12 @@ module.exports = {
         map: "LekMap_v5.1"
       }
     });
-    await newGame.save();
 
     let display = await lobby(newGame);
-    await interaction.channel?.send({ embeds: [display]});
+    await interaction.channel?.send({ embeds: [display]}).then(async (msg) => {
+      newGame.messageId = msg.id;
+      await newGame.save();
+    });
+    await interaction.reply("Game created.");
   },
 }
