@@ -1,5 +1,6 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
 import { User } from "../../mongo";
+import { perm } from "../../lib/perm";
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -14,8 +15,8 @@ module.exports = {
         .setDescription("The name of the user.")
         .setRequired(true)),
   async execute(interaction: ChatInputCommandInteraction) {
-    if (interaction.user.id !== "752025586171510865") {
-      await interaction.reply("Please ask Leong to sign you up.");
+    if (perm(interaction, "leong") == false) {
+      await interaction.reply("You do not have permission to use this command.");
       return;
     }
     const user = interaction.options.getUser("user");
