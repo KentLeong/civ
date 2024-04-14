@@ -29,9 +29,22 @@ for (const folder of commandFolders) {
   }
 }
 
-client.on(Events.ClientReady, () => {
-  console.log("Civ bot is now ready!");
-});
+// handles bot events
+const eventsPath = path.join(__dirname, 'events');
+const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js') || file.endsWith('.ts'));
+
+for (const file of eventFiles) {
+  const filePath = path.join(eventsPath, file);
+  const event = require(filePath);
+  if (!event.name || !event.execute) {
+    throw new Error(`Event ${file} is missing a name or execute property`);
+  }
+  if (event.once) {
+    client.once(event.name, (...args) => event.execute(client, ...args));
+  } else {
+    client.on(event.name, (...args) => event.execute(client, ...args));
+  }
+}
 
 // handles command interactions
 client.on(Events.InteractionCreate, async interaction => {
