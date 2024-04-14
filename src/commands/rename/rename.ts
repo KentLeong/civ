@@ -1,6 +1,6 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
 import { User } from "../../mongo";
-import { perm } from "../../lib";
+import { expireReply, perm } from "../../lib";
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -16,7 +16,8 @@ module.exports = {
         .setRequired(true)),
   async execute(interaction: ChatInputCommandInteraction) {
     if (perm(interaction, "leong") == false) {
-      await interaction.reply("You do not have permission to use this command.");
+      await interaction.reply({ content: "You do not have permission to use this command.", ephemeral: true });
+      expireReply(interaction);
       return;
     }
     const user = interaction.options.getUser("user");
@@ -27,11 +28,13 @@ module.exports = {
     });
 
     if (!exists) {
-      await interaction.reply("User not found.");
+      await interaction.reply({ content: "User not found.", ephemeral: true });
+      expireReply(interaction);
       return;
     }
 
     await User.updateOne({ discordId: user?.id }, { name: name });
-    await interaction.reply("User renamed.");
+    await interaction.reply({ content: "User renamed.", ephemeral: true});
+    expireReply(interaction);
   },
 }

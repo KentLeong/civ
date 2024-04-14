@@ -1,6 +1,7 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction, ButtonBuilder, ButtonStyle, ActionRowBuilder } from "discord.js";
 import { Game, User } from "../../mongo"
-import { perm, lobby } from "../../lib";
+import { perm, lobby, expireReply } from "../../lib";
+import { set } from "mongoose";
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -9,6 +10,7 @@ module.exports = {
   async execute(interaction: ChatInputCommandInteraction) {
     if (perm(interaction, "mod") == false) {
       await interaction.reply("You do not have permission to use this command.");
+      expireReply(interaction);
       return;
     }
 
@@ -18,6 +20,7 @@ module.exports = {
     });
     if (exists) {
       await interaction.reply("There is a lobby already in progress.");
+      expireReply(interaction);
       return;
     }
 
@@ -27,6 +30,7 @@ module.exports = {
     });
     if (!user) {
       await interaction.reply("User not found.");
+      expireReply(interaction);
       return;
     }
 
@@ -79,6 +83,7 @@ module.exports = {
         newGame.messageId = msg.id;
         await newGame.save();
       });
-    await interaction.reply("Game created.");
+    await interaction.reply({ content: "Game lobby created.", ephemeral: true});
+    expireReply(interaction);
   },
 }

@@ -2,6 +2,7 @@ import { AttachmentBuilder, EmbedBuilder, SlashCommandBuilder, ChatInputCommandI
 import { Civ } from "../../mongo";
 import { Civs } from "../../assets/civs";
 import { Civilization } from "../../types";
+import { expireReply } from "../../lib";
 
 const civs:string[] = []
 Civs.forEach((civ:Civilization) => {
@@ -38,7 +39,8 @@ module.exports = {
       name: opt
     });
     if (!civ) {
-      await interaction.reply("Civ not found");
+      await interaction.reply({ content: "Civ not found.", ephemeral: true });
+      expireReply(interaction);
       return;
     }
 
@@ -90,7 +92,7 @@ module.exports = {
       description += "```"+unique.description + "```\n";
     });
     embed.setDescription(description);
-    await interaction.reply({ embeds: [embed], files: [file]});
-    console.log(civ);
+    await interaction.channel?.send({ embeds: [embed], files: [file]});
+    (await interaction.deferReply({ ephemeral: true })).delete();
   },
 }

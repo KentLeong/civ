@@ -1,5 +1,6 @@
 import { Events } from "discord.js";
 import buttonHandler from "./button";
+import { expireReply } from "../lib";
 
 module.exports = {
   name: Events.InteractionCreate,
@@ -13,6 +14,7 @@ module.exports = {
       } catch (error) {
         console.error(error);
         await interaction.reply({ content: "There was an error while executing this command!", ephemeral: true });
+        expireReply(interaction);
       }
     } else if (interaction.isAutocomplete()) {
       const command:any = interaction.client.commands.get(interaction.commandName);

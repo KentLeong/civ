@@ -1,10 +1,11 @@
 import { User, Game } from "../../mongo";
-import { lobby, isPlayerInLobby } from "../../lib";
+import { lobby, isPlayerInLobby, expireReply } from "../../lib";
 
 export default async (interaction: any) => {
   const user = await User.findOne({ discordId: interaction.user.id });
   if (!user) {
-    await interaction.reply("You need to sign up first.");
+    await interaction.reply({ content: "You need to sign up first.", ephemeral: true });
+    expireReply(interaction);
     return false;
   }
 
@@ -12,22 +13,26 @@ export default async (interaction: any) => {
     messageId: interaction.message.id,
   })
   if (!game) {
-    await interaction.reply("Game not found.");
+    await interaction.reply({ content: "Game not found.", ephemeral: true });
+    expireReply(interaction);
     return false;
   } else if (game.state !== "lobby") {
-    await interaction.reply("Game is not in lobby state.");
+    await interaction.reply({ content: "Game is not in lobby state.", ephemeral: true });
+    expireReply(interaction);
     return false;
   }
 
   let exists = await isPlayerInLobby(game, interaction);
   if (exists) {
     await interaction.reply("You are already in the game.", { ephemeral: true });
+    expireReply(interaction);
     return false;
   }
 
   const playerCount = game.players.length;
   if (playerCount >= 8) {
     await interaction.reply("Game is full.");
+    expireReply(interaction);
     return;
   }
 
@@ -51,4 +56,5 @@ export default async (interaction: any) => {
   });
 
   await interaction.reply("You have joined the game.", { ephemeral: true });
+  expireReply(interaction);
 }

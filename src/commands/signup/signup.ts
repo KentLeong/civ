@@ -1,6 +1,6 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
 import { User } from "../../mongo";
-import { perm } from "../../lib";
+import { expireReply, perm } from "../../lib";
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -16,7 +16,8 @@ module.exports = {
         .setRequired(true)),
   async execute(interaction: ChatInputCommandInteraction) {
     if (perm(interaction, "leong") == false) {
-      await interaction.reply("You do not have permission to use this command.");
+      await interaction.reply({ content: "You do not have permission to use this command.", ephemeral: true });
+      expireReply(interaction);
       return;
     }
     const user = interaction.options.getUser("user");
@@ -27,7 +28,8 @@ module.exports = {
     });
 
     if (exists) {
-      await interaction.reply("User already signed up.");
+      await interaction.reply({ content: "User already exists.", ephemeral: true });
+      expireReply(interaction);
       return;
     }
 
@@ -36,6 +38,7 @@ module.exports = {
       discordId: user?.id
     });
     await newUser.save();
-    await interaction.reply("User signed up.");
+    await interaction.reply({content: "User signed up.", ephemeral: true});
+    expireReply(interaction);
   },
 }

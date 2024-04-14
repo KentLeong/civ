@@ -1,3 +1,4 @@
+import { expireReply } from "../../lib";
 import joinLobby from "./joinLobby";
 import leaveLobby from "./leaveLobby";
 
@@ -11,6 +12,7 @@ export default (interaction: any) => {
   if (buttons[id]) {
     buttons[id](interaction);
   } else {
-    interaction.reply("Button not found.");
+    interaction.reply({ content: "Button not found.", ephemeral: true});
+    expireReply(interaction);
   }
 }
