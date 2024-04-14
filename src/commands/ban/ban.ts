@@ -1,8 +1,8 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction, AutocompleteInteraction } from "discord.js";
 import { Civs } from "../../assets/civs";
-import { Civ, User, Game } from "../../mongo";
+import { User, Game } from "../../mongo";
 import { Civilization } from "../../types";
-import { expireReply } from "../../lib";
+import { expireReply, displayGame } from "../../lib";
 
 const civs:string[] = []
 Civs.forEach((civ:Civilization) => {
@@ -71,6 +71,31 @@ module.exports = {
     }
 
     await user.save();
+
+    // check if user is in a game
+    const game = await Game.findOne({
+      players: {$elemMatch: { discordId: interaction.user.id }},
+      state: "lobby"
+    });
+
+    if (game) {
+      await game.players.forEach(async player => {
+        if (player.discordId == interaction.user.id) {
+          player.bans = user.bans;
+        }
+      });
+
+      await Game.findOneAndUpdate({
+        players: {$elemMatch: { discordId: interaction.user.id }},
+        state: "lobby"
+      }, {
+        $set: {
+          players: game.players
+        }
+      })
+
+      await displayGame(interaction, game);
+    }
     await interaction.reply({ content: "Bans set.", ephemeral: true});
     expireReply(interaction);
   },

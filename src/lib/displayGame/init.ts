@@ -2,7 +2,7 @@ import { EmbedBuilder, AttachmentBuilder, ButtonBuilder, ButtonStyle, ActionRowB
 import { Game } from "../../mongo";
 
 export default async (interaction: any, game: Game) => {
-  let description = "```fix\n"+" ".repeat(20)+"Civ 5 "+" ".repeat(20)+"\n";
+  let description = "```fix\n"+" ".repeat(20)+"Civ 5 "+" ".repeat(20)+"```\n";
   const file = new AttachmentBuilder("src/assets/civ5.png");
   const embed = new EmbedBuilder()
     .setThumbnail("attachment://civ5.png")
