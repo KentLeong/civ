@@ -9,6 +9,7 @@ export interface Command {
 export interface User {
   name: string;
   discordId: string;
+  bans: string[];
 }
 
 export interface Game {
