@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 import { Civ } from "../mongo";
-import { Civs } from "../data/civs";
+import { Civs } from "../assets/civs";
 import { Civilization } from "../types";
 
 console.log("Importing civs...");

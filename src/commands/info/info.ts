@@ -1,6 +1,6 @@
 import { AttachmentBuilder, EmbedBuilder, SlashCommandBuilder, ChatInputCommandInteraction, AutocompleteInteraction } from "discord.js";
 import { Civ } from "../../mongo";
-import { Civs } from "../../data/civs";
+import { Civs } from "../../assets/civs";
 import { Civilization } from "../../types";
 
 const civs:string[] = []
