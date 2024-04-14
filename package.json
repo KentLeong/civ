@@ -7,7 +7,7 @@
     "clean": "rm -rf dist",
     "start": "npm run commands && node dist/main.js",
     "commands": "npm run build && node dist/scripts/deployCommands.js",
-    "import-civs": "npm run build && node dist/scripts/importCivs.js",
+    "import": "npm run build && node dist/scripts/importCivs.js",
     "dev": "ts-node src/main.ts",
     "build": "npm run clean && tsc"
   },

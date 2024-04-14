@@ -559,19 +559,14 @@ export const Civs:Array<Civilization> = [
     leader: "Bernardo O'Higgins",
     ability: {
       name: "By Reason or By Force",
-      description: `Claim all surrounding neutral tiles upon the completion of Fishing Boat or Drydock improvements.
-      Receive a free Great Admiral at Compass.
-      Friendly Melee & Gunpowder Units inflict a -25% Combat Penalty to adjacent enemy Naval Units; Melee Naval Units inflict this penalty to adjacent enemy Land Units.
-      (Embarked Units do not apply these penalties.)`
+      description: `Claim all surrounding neutral tiles upon the completion of Fishing Boat or Drydock improvements.\nReceive a free Great Admiral at Compass.\nFriendly Melee & Gunpowder Units inflict a -25% Combat Penalty to adjacent enemy Naval Units; Melee Naval Units inflict this penalty to adjacent enemy Land Units.\n(Embarked Units do not apply these penalties.)`
     },
     unique: [
       {
         type: "Building",
         name: "Cooperative",
         replaces: "Factory",
-        description: `In addition to the typical perks, provides +2 Happiness and houses an additional Engineer Specialist (3 vs. 2). 
-        Does not require Gold maintenance. Ideologies are unlocked for Chile after the completion of only 1 Cooperative (compared to 3 Factories).
-        `
+        description: `In addition to the typical perks, provides +2 Happiness and houses an additional Engineer Specialist (3 vs. 2).\nDoes not require Gold maintenance. Ideologies are unlocked for Chile after the completion of only 1 Cooperative (compared to 3 Factories).`
       },
       {
         type: "Unit",
@@ -787,10 +782,7 @@ export const Civs:Array<Civilization> = [
         type: "Improvement",
         name: "Chateau",
         replaces: "Nothing",
-        description: `
-        Provides +2 Science, +2 Culture and +1 Gold, increasing by +1 Culture and +2 Gold at Flight, and +1 Science after adopting the Free Thought policy. Provides the same defensive bonus as a Fort (+50% bonus when foe initiates combat).
-        Chateaus must be constructed adjacent to a luxury resource, non-adjacent to another Chateau, and not atop an existing Resource tile. (Resources discovered after the construction of the Chateau will provide their yield bonus to the tile, but the Chateau will not ‘connect' those resources.)
-        `
+        description: `Provides +2 Science, +2 Culture and +1 Gold, increasing by +1 Culture and +2 Gold at Flight, and +1 Science after adopting the Free Thought policy. Provides the same defensive bonus as a Fort (+50% bonus when foe initiates combat).\nChateaus must be constructed adjacent to a luxury resource, non-adjacent to another Chateau, and not atop an existing Resource tile. (Resources discovered after the construction of the Chateau will provide their yield bonus to the tile, but the Chateau will not ‘connect' those resources.)`
       },
       {
         type: "Unit",
@@ -1108,17 +1100,7 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Kris Swordsman",
         replaces: "Swordsmen",
-        description: `
-        15 Strength (from 14, vs. 14).
-        After its first combat, this Unit receives one of many unique promotions at random:
-        Invulnerability: +30% bonus when foe initiates combat. Restore +20 additional HP while fortified.
-        Sneak Attack: Flanking bonus increases to +15% per ally (vs. +10%).
-        Heroism: Radiates a +15% Combat Bonus to allies within 2 tiles as if it were a Great General.
-        Ambition: +50% bonus when initiating combat, but a -20% penalty when defending.
-        Restlessness: +1 Movement; Unit may attack twice.
-        Recruitment: Heal 50 HP from non-Barbarian kills.
-        (Harmful promotions Enemy Blade and Evil Spirits have been removed.)        
-        `
+        description: `15 Strength (from 14, vs. 14).\nAfter its first combat, this Unit receives one of many unique promotions at random:\nInvulnerability: +30% bonus when foe initiates combat. Restore +20 additional HP while fortified.\nSneak Attack: Flanking bonus increases to +15% per ally (vs. +10%).\nHeroism: Radiates a +15% Combat Bonus to allies within 2 tiles as if it were a Great General.\nAmbition: +50% bonus when initiating combat, but a -20% penalty when defending.\nRestlessness: +1 Movement; Unit may attack twice.\nRecruitment: Heal 50 HP from non-Barbarian kills.\n(Harmful promotions Enemy Blade and Evil Spirits have been removed.)`
       }
     ],
     bias: ["Coast"],
@@ -1286,12 +1268,7 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Ballista Elephant",
         replaces: "Trebuchet",
-        description: `
-        Available at Machinery (instead of Physics). 18 Ranged Strength (vs. 14), 20 Melee (vs. 12), and 3 Movement (vs. 2). Gains a +100% bonus initiating combat with Cities (vs. +200%).
-        Unlike the Trebuchet, the Ballista Elephant does not receive a Sight penalty.
-        Receives the Feared Elephant (enemy Units adjacent to this Unit receive a -10% combat penalty) promotion. (Feared Elephant will not stack.)
-        Slightly more costly to construct (90 hammers vs. 80).
-        `
+        description: `Available at Machinery (instead of Physics). 18 Ranged Strength (vs. 14), 20 Melee (vs. 12), and 3 Movement (vs. 2). Gains a +100% bonus initiating combat with Cities (vs. +200%).\nUnlike the Trebuchet, the Ballista Elephant does not receive a Sight penalty.\nReceives the Feared Elephant (enemy Units adjacent to this Unit receive a -10% combat penalty) promotion. (Feared Elephant will not stack.)\nSlightly more costly to construct (90 hammers vs. 80).`
       }
     ],
     bias: [],
@@ -1357,9 +1334,7 @@ export const Civs:Array<Civilization> = [
         type: "Building",
         name: "Cooperative",
         replaces: "Factory",
-        description: `In addition to the typical perks, provides +2 Happiness and houses an additional Engineer Specialist (3 vs. 2). 
-        Does not require Gold maintenance. Ideologies are unlocked for Korea after the completion of only 1 Cooperative (compared to 3 Factories).
-        `
+        description: `In addition to the typical perks, provides +2 Happiness and houses an additional Engineer Specialist (3 vs. 2).\nDoes not require Gold maintenance. Ideologies are unlocked for Korea after the completion of only 1 Cooperative (compared to 3 Factories).`
       },
       {
         type: "Unit",
@@ -1425,15 +1400,7 @@ export const Civs:Array<Civilization> = [
         type: "Great Person",
         name: "Hetairoi",
         replaces: "Great General",
-        description: `
-        Replaces the Great General. Considered a Mounted Unit with 15 Combat Strength and 4 Movement with identical mechanics to Horsemen, and arrives with several promotions:
-        Leadership: Grants the Great General bonus to Units within 2 tiles as a General would,
-        Great Generals II: This Unit will earn progress towards Great Generals through combat significantly faster,
-        Charge: +33% bonus vs. wounded foes,
-        Heavy Charge: Enemy Units will retreat if they receive more damage than this Unit; this Unit deals +50% damage to defenders incapable of retreat.
-        Can upgrade to a Knight, but will lose its ability to create Citadels.
-        Requires a Horse resource. (If no Horses are available when this unit is generated, it receives a Strategic Resource penalty!)
-        `
+        description: `Replaces the Great General. Considered a Mounted Unit with 15 Combat Strength and 4 Movement with identical mechanics to Horsemen, and arrives with several promotions:\nLeadership: Grants the Great General bonus to Units within 2 tiles as a General would,\nGreat Generals II: This Unit will earn progress towards Great Generals through combat significantly faster,\nCharge: +33% bonus vs. wounded foes,\nHeavy Charge: Enemy Units will retreat if they receive more damage than this Unit; this Unit deals +50% damage to defenders incapable of retreat.\nCan upgrade to a Knight, but will lose its ability to create Citadels.\nRequires a Horse resource. (If no Horses are available when this unit is generated, it receives a Strategic Resource penalty!)`
       }
     ],
     bias: [],
@@ -1451,21 +1418,7 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Mpiambina",
         replaces: "Inquisitor",
-        description: `
-        Ranged Unit with 8 Melee Strength, 14 Ranged Strength, 1 Range, and 3 Movement. Receives one promotion from a unique pool after its first round of combat:
-        Kelimazala - Allows Unit to attack twice.
-        Ramahavaly - +50% defensive bonus, -50% attacking penalty.
-        Manjakatsiroa - +25% Combat Bonus in friendly territory.
-        Rafantaka - Adjacent allies heal +15 HP while Fortified. This Unit heals every turn, even if an action was performed.
-        Mosasa - +4 Sight, +4 Range.
-        Rabehaza - Gain a chance to capture defeated enemies.
-        Ambohimanambola - Grant the Great General bonus to nearby allies.
-        Sehatra - Heal fully from every kill.
-        Lambamena - +100% bonus initiating combat with Cities.
-        Famadiahona - Knock back foes that take more damage than this Unit receives during combat. This unit gains a chance to Withdraw from Melee combat.
-        Razana - +3 Movement. Great Generals that start their turn on the same tile as this Unit receive +2 Movement.
-        Masina - +75% bonus against wounded foes.
-        `
+        description: `Ranged Unit with 8 Melee Strength, 14 Ranged Strength, 1 Range, and 3 Movement. Receives one promotion from a unique pool after its first round of combat:\nKelimazala - Allows Unit to attack twice.\nRamahavaly - +50% defensive bonus, -50% attacking penalty.\nManjakatsiroa - +25% Combat Bonus in friendly territory.\nRafantaka - Adjacent allies heal +15 HP while Fortified. This Unit heals every turn, even if an action was performed.\nMosasa - +4 Sight, +4 Range.\nRabehaza - Gain a chance to capture defeated enemies.\nAmbohimanambola - Grant the Great General bonus to nearby allies.\nSehatra - Heal fully from every kill.\nLambamena - +100% bonus initiating combat with Cities.\nFamadiahona - Knock back foes that take more damage than this Unit receives during combat. This unit gains a chance to Withdraw from Melee combat.\nRazana - +3 Movement. Great Generals that start their turn on the same tile as this Unit receive +2 Movement.\nMasina - +75% bonus against wounded foes.`
       },
       {
         type: "Building",
@@ -1705,19 +1658,13 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Zabonah",
         replaces: "Scout",
-        description: `
-        May not attack. 3 Movement (vs. 2).
-        May discover Cities from an additional +3 tiles away. When this Unit discovers a Capital or City-State, gain +10 Gold for the Empire. Will not upgrade from Ruins.
-        (The Zabonah must make Sight contact with players and City-States to ‘meet' them and will not ‘meet' when discovering Cities only due to its expanded range.)
-        `
+        description: `May not attack. 3 Movement (vs. 2).\nMay discover Cities from an additional +3 tiles away. When this Unit discovers a Capital or City-State, gain +10 Gold for the Empire. Will not upgrade from Ruins.\n(The Zabonah must make Sight contact with players and City-States to ‘meet' them and will not ‘meet' when discovering Cities only due to its expanded range.)`
       },
       {
         type: "Building",
         name: "Rock-Cut Tomb",
         replaces: "Caravansary",
-        description: `
-        In addition to the typical perks, provides an additional +1 Gold (3 vs. 2) and +2 Food in the City. Gains an additional +1 Food for each Trade Route departing the City.
-        `
+        description: `In addition to the typical perks, provides an additional +1 Gold (3 vs. 2) and +2 Food in the City. Gains an additional +1 Food for each Trade Route departing the City.`
       }
     ],
     bias: ["Desert"],
@@ -1735,19 +1682,13 @@ export const Civs:Array<Civilization> = [
         type: "Improvement",
         name: "Polder",
         replaces: "Nothing",
-        description: `
-        Available at Guilds. May be built on Marsh and Floodplain tiles and on Lakes or Coastal tiles with at least 3 adjacent land tiles.
-        +3 Food if constructed on Marsh, +2 Food if constructed on Lakes or Coast.
-        Gains +1 Production and +2 Gold at Economics.
-        `
+        description: `Available at Guilds. May be built on Marsh and Floodplain tiles and on Lakes or Coastal tiles with at least 3 adjacent land tiles.\n+3 Food if constructed on Marsh, +2 Food if constructed on Lakes or Coast.\nGains +1 Production and +2 Gold at Economics.`
       },
       {
         type: "Unit",
         name: "Sea Beggar",
         replaces: "Privateer",
-        description: `
-        27 Strength (from 25, vs. 27). Arrives with the Supply (may heal outside friendly territory; heals 15 HP each turn), Coastal Raider (+20% bonus when attacking Cities; Steal Gold equal to 33% of inflicted damage) and Boarding Party I (+15% bonus in Melee combat with Naval Units) promotions.
-        `
+        description: `27 Strength (from 25, vs. 27). Arrives with the Supply (may heal outside friendly territory; heals 15 HP each turn), Coastal Raider (+20% bonus when attacking Cities; Steal Gold equal to 33% of inflicted damage) and Boarding Party I (+15% bonus in Melee combat with Naval Units) promotions.`
       }
     ],
     bias: ["Coast", "Wetlands"],
@@ -1765,17 +1706,13 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Defender",
         replaces: "Ironclad",
-        description: `
-        50 Strength (vs. 45). Earns a +15% bonus inside friendly territory and ignores Zone of Control movement penalties when within 2 tiles of a friendly City. In addition to the typical traits, arrives with Cover I (gain a +33% bonus defending against Ranged attacks). Doesn't require Coal.
-        `
+        description: `50 Strength (vs. 45). Earns a +15% bonus inside friendly territory and ignores Zone of Control movement penalties when within 2 tiles of a friendly City. In addition to the typical traits, arrives with Cover I (gain a +33% bonus defending against Ranged attacks). Doesn't require Coal.`
       },
       {
         type: "Unit",
         name: "Maori Battalion",
         replaces: "Infantry",
-        description: `
-        Possesses the promotions and traits of a Marine. Receive a Combat Bonus the further this unit is away from the Capital (+2% per tile to a maximum of +40%). Each Battalion stationed within a City-State's borders earns +1 Influence with that City-State each turn.
-        `
+        description: `Possesses the promotions and traits of a Marine. Receive a Combat Bonus the further this unit is away from the Capital (+2% per tile to a maximum of +40%). Each Battalion stationed within a City-State's borders earns +1 Influence with that City-State each turn.`
       }
     ],
     bias: ["Coast"],
@@ -1793,18 +1730,13 @@ export const Civs:Array<Civilization> = [
         type: "Improvement",
         name: "Motte and Bailey",
         replaces: "Nothing",
-        description: `
-        Available at Engineering. +1 Food and Production. +2 Culture at Flight. Cannot be built adjacent to one another.
-        Units gain a +25% Combat Bonus defending this tile.
-        `
+        description: `Available at Engineering. +1 Food and Production. +2 Culture at Flight. Cannot be built adjacent to one another.\nUnits gain a +25% Combat Bonus defending this tile.`
       },
       {
         type: "Unit",
         name: "Pedite",
         replaces: "Longswordsman",
-        description: `
-        20 Strength (vs. 21). Marginally cheaper to produce (77 hammers vs. 80). Arrives with Shock I (+15% bonus vs. foes in Open terrain) and may construct Motte and Baileys.
-        `
+        description: `20 Strength (vs. 21). Marginally cheaper to produce (77 hammers vs. 80). Arrives with Shock I (+15% bonus vs. foes in Open terrain) and may construct Motte and Baileys.`
       }
     ],
     bias: [],
@@ -1822,9 +1754,7 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Ski Infantry",
         replaces: "Great War Infantry",
-        description: `
-        Matches the strength of its counterpart and arrives with Drill I and II (total of +30% bonus fighting in Rough terrain) and the unique Ski Infantry promotion (+25% bonus fighting in Snow, Tundra and Hills without Forests or Jungles; move twice as far through these tiles).
-        `
+        description: `Matches the strength of its counterpart and arrives with Drill I and II (total of +30% bonus fighting in Rough terrain) and the unique Ski Infantry promotion (+25% bonus fighting in Snow, Tundra and Hills without Forests or Jungles; move twice as far through these tiles).`
       },
       {
         type: "Building",
@@ -1848,17 +1778,13 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Apedemak's Bow",
         replaces: "Scout",
-        description: `
-        Replaces the Scout and has identical Strength, but is classified as a Ranged unit and may attack with 3 Range. Will not upgrade from Ruins, but can upgrade with Gold like the Scout when appropriate.
-        `
+        description: `Replaces the Scout and has identical Strength, but is classified as a Ranged unit and may attack with 3 Range. Will not upgrade from Ruins, but can upgrade with Gold like the Scout when appropriate.`
       },
       {
         type: "Building",
         name: "Blast Furnace",
         replaces: "Forge",
-        description: `
-        In addition to the typical perks, provides +2 Culture by default, +2 Culture from Iron resources, and newly-trained Ranged, Siege and Recon units receive the Accuracy I (+15% bonus in Open terrain) promotion for free. Does not require resources nearby and does not require Gold maintenance.
-        `
+        description: `In addition to the typical perks, provides +2 Culture by default, +2 Culture from Iron resources, and newly-trained Ranged, Siege and Recon units receive the Accuracy I (+15% bonus in Open terrain) promotion for free. Does not require resources nearby and does not require Gold maintenance.`
       }
     ],
     bias: ["Desert"],
@@ -1876,18 +1802,13 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Baghlah",
         replaces: "Galley",
-        description: `
-        Greater Melee Strength (8 Strength vs. 6) and Ranged Strength (12 vs. 8). Moves further (4 Movement vs. 3) and receives Faith and Gold from kills equal to the Strength of the defeated foe.
-        Arrives with the Coastal Raider I (+20% bonus initiating combat with Cities; steal Gold equal to 33% of inflicted damage) promotion.
-        `
+        description: `Greater Melee Strength (8 Strength vs. 6) and Ranged Strength (12 vs. 8). Moves further (4 Movement vs. 3) and receives Faith and Gold from kills equal to the Strength of the defeated foe.\nArrives with the Coastal Raider I (+20% bonus initiating combat with Cities; steal Gold equal to 33% of inflicted damage) promotion.`
       },
       {
         type: "Building",
         name: "Minaa'",
         replaces: "Harbor",
-        description: `
-        Enemy Naval Units take 30 damage if they end their turn next to this City. Provides +5 City Strength, and +2 Production for each Trade Route departing the City. Allows units to Airlift between Cities with Minaa's.
-        `
+        description: `Enemy Naval Units take 30 damage if they end their turn next to this City. Provides +5 City Strength, and +2 Production for each Trade Route departing the City. Allows units to Airlift between Cities with Minaa's.`
       }
     ],
     bias: ["Coast"],
@@ -1905,17 +1826,13 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Sipahi",
         replaces: "Lancer",
-        description: `
-        In addition to the typical traits, receives +1 Sight and Movement (5 vs. 4) and may Pillage without movement penalty. Available at Gunpowder (previously Metallurgy) and costs less to produce (99 hammers from 123, vs. 123).
-        `
+        description: `In addition to the typical traits, receives +1 Sight and Movement (5 vs. 4) and may Pillage without movement penalty. Available at Gunpowder (previously Metallurgy) and costs less to produce (99 hammers from 123, vs. 123).`
       },
       {
         type: "Unit",
         name: "Janissary",
         replaces: "Musketmen",
-        description: `
-        Gains a +25% bonus when initiating combat and heals 50 HP from kills. Less costly to produce (80 from 100, vs. 100).
-        `
+        description: `Gains a +25% bonus when initiating combat and heals 50 HP from kills. Less costly to produce (80 from 100, vs. 100).`
       }
     ],
     bias: [],
@@ -1933,17 +1850,13 @@ export const Civs:Array<Civilization> = [
         type: "Building",
         name: "Palmyrene Theater",
         replaces: "Amphitheater",
-        description: `
-        Provides +2 Gold. +1 Production, Gold, and Culture from Oases, +1 Production from Lake tiles. Does not require Gold maintenance.
-        `
+        description: `Provides +2 Gold. +1 Production, Gold, and Culture from Oases, +1 Production from Lake tiles. Does not require Gold maintenance.`
       },
       {
         type: "Unit",
         name: "Clibanarius",
         replaces: "Horsemen",
-        description: `
-        14 Strength (vs. 12), arrives with Heavy Charge (enemy Units will retreat if they receive more damage than this Unit; this Unit deals +50% damage to defenders incapable of retreat). This promotion is kept on upgrade.
-        `
+        description: `14 Strength (vs. 12), arrives with Heavy Charge (enemy Units will retreat if they receive more damage than this Unit; this Unit deals +50% damage to defenders incapable of retreat). This promotion is kept on upgrade.`
       }
     ],
     bias: ["Desert"],
@@ -1961,17 +1874,13 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Swiss Guard",
         replaces: "Landsknecht",
-        description: `
-        Does not require the Mercenary Army policy, but still must be purchased. Available at Economics. More expensive to purchase (210 Gold vs. 160), but is faster (3 Movement vs. 2) and significantly stronger (25 Strength vs. 16). Receives Faith and Gold from kills equal to the Strength of the defeated foe, and arrives with Medic I and II (adjacent allies heal a total of +10 additional HP while Fortified). May upgrade into Riflemen.
-        `
+        description: `Does not require the Mercenary Army policy, but still must be purchased. Available at Economics. More expensive to purchase (210 Gold vs. 160), but is faster (3 Movement vs. 2) and significantly stronger (25 Strength vs. 16). Receives Faith and Gold from kills equal to the Strength of the defeated foe, and arrives with Medic I and II (adjacent allies heal a total of +10 additional HP while Fortified). May upgrade into Riflemen.`
       },
       {
         type: "Building",
         name: "Saint Peter's Basilica",
         replaces: "Grand Temple",
-        description: `
-        In addition to the typical perks, provides a free Cathedral in the City and spawns a Great Prophet near the City.
-        `
+        description: `In addition to the typical perks, provides a free Cathedral in the City and spawns a Great Prophet near the City.`
       }
     ],
     bias: [],
@@ -1989,17 +1898,13 @@ export const Civs:Array<Civilization> = [
         type: "Building",
         name: "Satrap's Court",
         replaces: "Bank",
-        description: `
-        In addition to the typical perks, provides an additional +1 Gold (3 vs. 2) and +2 Happiness.
-        `
+        description: `In addition to the typical perks, provides an additional +1 Gold (3 vs. 2) and +2 Happiness.`
       },
       {
         type: "Unit",
         name: "Immortal",
         replaces: "Spearmen",
-        description: `
-        12 Strength (vs. 11). In addition to the typical traits, the Immortal heals an additional +10 HP while fortified.
-        `
+        description: `12 Strength (vs. 11). In addition to the typical traits, the Immortal heals an additional +10 HP while fortified.`
       }
     ],
     bias: [],
@@ -2017,17 +1922,13 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Gerilya",
         replaces: "Expeditionary Forces",
-        description: `
-        Boasts a whopping 55 Strength (vs. 40). In addition to the Force's innate promotions, the Gerilya arrives with Volley (gain a +50% bonus against Fortified Units and Cities), 3 Movement (vs. 2), +3 additional Movement while embarked, and +1 Sight while embarked.
-        `
+        description: `Boasts a whopping 55 Strength (vs. 40). In addition to the Force's innate promotions, the Gerilya arrives with Volley (gain a +50% bonus against Fortified Units and Cities), 3 Movement (vs. 2), +3 additional Movement while embarked, and +1 Sight while embarked.`
       },
       {
         type: "Building",
         name: "National Church",
         replaces: "Zoo",
-        description: `
-        In addition to the typical perks of a Zoo, the National Church provides +1 Culture and +4 Faith, and provides +15 XP to Units trained in the City. Less costly to construct (100 hammers vs. 120).
-        `
+        description: `In addition to the typical perks of a Zoo, the National Church provides +1 Culture and +4 Faith, and provides +15 XP to Units trained in the City. Less costly to construct (100 hammers vs. 120).`
       }
     ],
     bias: ["Coast"],
@@ -2045,17 +1946,13 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Square Sail Ship",
         replaces: "Trireme",
-        description: `
-        Can see 1 tile further than its counterpart and receives the Supply (may heal outside friendly territory; heals 15 HP each turn) promotion. Slightly cheaper to train (25 hammers vs. 30).
-        `
+        description: `Can see 1 tile further than its counterpart and receives the Supply (may heal outside friendly territory; heals 15 HP each turn) promotion. Slightly cheaper to train (25 hammers vs. 30).`
       },
       {
         type: "Building",
         name: "Trade Harbor",
         replaces: "Harbor",
-        description: `
-        In addition to the typical perks, provides +15% production towards Naval units and +1 Production from all Coastal resources.
-        `
+        description: `In addition to the typical perks, provides +15% production towards Naval units and +1 Production from all Coastal resources.`
       }
     ],
     bias: ["Coast"],
@@ -2081,9 +1978,7 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Winged Hussar",
         replaces: "Lancer",
-        description: `
-        28 Strength (vs. 25) and 5 Movement (vs. 4). In addition to the Lancer's innate promotions, arrives with the Heavy Charge (enemy Units will retreat if they receive more damage than this Unit; this Unit deals +50% damage to defenders incapable of retreat) promotion. No longer arrives with Shock (+15% bonus vs. foes in Open terrain).
-        `
+        description: `28 Strength (vs. 25) and 5 Movement (vs. 4). In addition to the Lancer's innate promotions, arrives with the Heavy Charge (enemy Units will retreat if they receive more damage than this Unit; this Unit deals +50% damage to defenders incapable of retreat) promotion. No longer arrives with Shock (+15% bonus vs. foes in Open terrain).`
       }
     ],
     bias: ["Plains"],
@@ -2101,17 +1996,13 @@ export const Civs:Array<Civilization> = [
         type: "Improvement",
         name: "Moai",
         replaces: "Nothing",
-        description: `
-        Available at Construction. Must be built on land adjacent to the coast. Provides +1 Culture and gains an additional +1 Culture for each adjacent Moai. Gains +1 Gold at Flight.
-        `
+        description: `Available at Construction. Must be built on land adjacent to the coast. Provides +1 Culture and gains an additional +1 Culture for each adjacent Moai. Gains +1 Gold at Flight.`
       },
       {
         type: "Unit",
         name: "Koa",
         replaces: "Longswordsmen",
-        description: `
-        23 Strength (vs. 21), requires no Iron resources, and arrives with the Amphibious (attack from the sea or over rivers without penalty) promotion. Obsolete at Rifling (instead of Gunpowder).
-        `
+        description: `23 Strength (vs. 21), requires no Iron resources, and arrives with the Amphibious (attack from the sea or over rivers without penalty) promotion. Obsolete at Rifling (instead of Gunpowder).`
       }
     ],
     bias: ["Coast"],
@@ -2129,17 +2020,13 @@ export const Civs:Array<Civilization> = [
         type: "Building",
         name: "Feitoria",
         replaces: "Harbor",
-        description: `
-        In addition to the typical perks, provides +1 Gold from Coastal resources. Naval units trained in this City receive +15 XP. Cheaper to construct (67 hammers vs. 80) and doesn't require Gold maintenance.
-        `
+        description: `In addition to the typical perks, provides +1 Gold from Coastal resources. Naval units trained in this City receive +15 XP. Cheaper to construct (67 hammers vs. 80) and doesn't require Gold maintenance.`
       },
       {
         type: "Unit",
         name: "Nau",
         replaces: "Caravel",
-        description: `
-        6 Movement (vs. 5). In addition to the typical perks, the Nau may perform a unique action when adjacent to foreign territory, gaining Gold for the empire and XP for the Unit scaling with the distance from Portugal's Capital.
-        `
+        description: `6 Movement (vs. 5). In addition to the typical perks, the Nau may perform a unique action when adjacent to foreign territory, gaining Gold for the empire and XP for the Unit scaling with the distance from Portugal's Capital.`
       }
     ],
     bias: ["Coast"],
@@ -2157,32 +2044,19 @@ export const Civs:Array<Civilization> = [
         type: "Building",
         name: "Fabrik",
         replaces: "Factory",
-        description: `
-        25% cheaper to produce (180 hammers vs. 240) and does not require Coal resources.
-        `
+        description: `25% cheaper to produce (180 hammers vs. 240) and does not require Coal resources.`
       },
       {
         type: "Unit",
         name: "Landwehr",
         replaces: "Riflemen",
-        description: `
-        Available at Military Science instead of Rifling. Arrives trained with Blitz (may attack twice each turn) and Quick Study (+50% Experience earned through combat). 3 Movement (vs. 2).
-        `
+        description: `Available at Military Science instead of Rifling. Arrives trained with Blitz (may attack twice each turn) and Quick Study (+50% Experience earned through combat). 3 Movement (vs. 2).`
       },
       {
         type: "Promotion",
         name: "Gehorsam",
         replaces: "Promotion",
-        description: `
-        Tier 0 - Gehorsam: Designates Units capable of learning further Promotions.
-        Tier 1 - Disziplin: +10% Combat Strength.
-        Tier 2 - Fleiss: +25% bonus attacking, or Tapferkeit: +25% bonus defending.
-        Tier 3 - Zielstrebigkeit: +1 Extra Attack (requires Fleiss),
-        Härte: +50% Defensive Strength vs. Ranged Units (requires Tapferkeit),
-        or Pünktlichkeit: +1 Movement (requires either).
-        (Zielstrebigkeit cannot be chosen by Paradropping Units.)
-        Tier 4 - Zuverlässigkeit: Gain a bonus when near Great Generals and Heal every turn (requires Zielstrebigkeit), Zurückhaltung: +30% bonus in friendly territory (requires Härte), or Pflichtbewusstsein: +50% bonus vs. Mounted and Armored Units in addition to +1 Movement (requires Pünktlichkeit).
-        `
+        description: `Tier 0 - Gehorsam: Designates Units capable of learning further Promotions.\nTier 1 - Disziplin: +10% Combat Strength.\nTier 2 - Fleiss: +25% bonus attacking, or Tapferkeit: +25% bonus defending.\nTier 3 - Zielstrebigkeit: +1 Extra Attack (requires Fleiss),\nHärte: +50% Defensive Strength vs. Ranged Units (requires Tapferkeit),\nor Pünktlichkeit: +1 Movement (requires either).\n(Zielstrebigkeit cannot be chosen by Paradropping Units.)\nTier 4 - Zuverlässigkeit: Gain a bonus when near Great Generals and Heal every turn (requires Zielstrebigkeit), Zurückhaltung: +30% bonus in friendly territory (requires Härte), or Pflichtbewusstsein: +50% bonus vs. Mounted and Armored Units in addition to +1 Movement (requires Pünktlichkeit).`
       }
     ],
     bias: [],
@@ -2200,17 +2074,13 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Vanator",
         replaces: "Gatling Gun",
-        description: `
-        31 Melee and Ranged Strength (vs. 30) and 2 Range (vs. 1).
-        `
+        description: `31 Melee and Ranged Strength (vs. 30) and 2 Range (vs. 1).`
       },
       {
         type: "Building",
         name: "Painted Monastery",
         replaces: "Garden",
-        description: `
-        In addition to the typical perks, provides +1 Production, +2 Faith, and +1 Great Artist point per turn. Does not require freshwater. Cheaper to construct (67 vs. 80 hammers).
-        `
+        description: `In addition to the typical perks, provides +1 Production, +2 Faith, and +1 Great Artist point per turn. Does not require freshwater. Cheaper to construct (67 vs. 80 hammers).`
       }
     ],
     bias: [],
@@ -2228,17 +2098,13 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Ballista",
         replaces: "Catapult",
-        description: `
-        8 Melee Strength (vs. 7) and 10 Ranged Strength (vs. 8). May attack without prior setup. Receives the Indirect Fire promotion.
-        `
+        description: `8 Melee Strength (vs. 7) and 10 Ranged Strength (vs. 8). May attack without prior setup. Receives the Indirect Fire promotion.`
       },
       {
         type: "Unit",
         name: "Legion",
         replaces: "Swordsmen",
-        description: `
-        16 Strength (from 17, vs. 14). May construct Roads and Forts.
-        `
+        description: `16 Strength (from 17, vs. 14). May construct Roads and Forts.`
       }
     ],
     bias: [],
@@ -2262,9 +2128,7 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Cossack",
         replaces: "Cavalry",
-        description: `
-        In addition to the typical traits, gains a +25% bonus in combat with wounded foes.
-        `
+        description: `In addition to the typical traits, gains a +25% bonus in combat with wounded foes.`
       }
     ],
     bias: ["Tundra"],
@@ -2282,10 +2146,7 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Gallowglass",
         replaces: "Riflemen",
-        description: `
-        Cheaper to construct (120 hammers vs. 150) and available at Metallurgy (instead of Rifling). 32 Strength (vs. 35). Arrives with Altitude Training (+10% bonus fighting in Hills; move twice as fast through these tiles) and Volley (+50% bonus vs. Fortified Units and Cities).
-        Unlike Riflemen, requires 1 Iron resource to train.
-        `
+        description: `Cheaper to construct (120 hammers vs. 150) and available at Metallurgy (instead of Rifling). 32 Strength (vs. 35). Arrives with Altitude Training (+10% bonus fighting in Hills; move twice as fast through these tiles) and Volley (+50% bonus vs. Fortified Units and Cities).\nUnlike Riflemen, requires 1 Iron resource to train.`
       },
       {
         type: "Building",
@@ -2309,17 +2170,13 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Pathfinder",
         replaces: "Scout",
-        description: `
-        27 hammers to produce (from 30, vs. 16). 8 Strength (vs. 5). When entering Ancient Ruins, the Pathfinder may select the benefit from the available pool. (This Unit upgrades into a Composite Bowman (instead of an Archer) from Ruins.)
-        `
+        description: `27 hammers to produce (from 30, vs. 16). 8 Strength (vs. 5). When entering Ancient Ruins, the Pathfinder may select the benefit from the available pool. (This Unit upgrades into a Composite Bowman (instead of an Archer) from Ruins.)`
       },
       {
         type: "Unit",
         name: "Comanche Riders",
         replaces: "Cavalry",
-        description: `
-        5 Movement (vs. 4) and costs less to produce (132 hammers vs. 150).
-        `
+        description: `5 Movement (vs. 4) and costs less to produce (132 hammers vs. 150).`
       }
     ],
     bias: [],
@@ -2343,9 +2200,7 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Naresuan's Elephant",
         replaces: "Knight",
-        description: `
-        25 Strength (vs. 20), but 3 Movement (vs. 4). Gains a +50% bonus against Mounted Units and does not require Horses to construct.
-        `
+        description: `25 Strength (vs. 20), but 3 Movement (vs. 4). Gains a +50% bonus against Mounted Units and does not require Horses to construct.`
       }
     ],
     bias: ["River"],
@@ -2363,17 +2218,13 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Buffalo Hunter",
         replaces: "Composite Bowman",
-        description: `
-        12 Ranged Strength (vs. 11), 8 Melee (vs. 7). Capable of constructing Tipis.
-        `
+        description: `12 Ranged Strength (vs. 11), 8 Melee (vs. 7). Capable of constructing Tipis.`
       },
       {
         type: "Improvement",
         name: "Tipi",
         replaces: "Nothing",
-        description: `
-        Available at Trapping. May only be constructed on flat Plains or flatland Deer / Bison resources and must be adjacent to a Luxury resource. Provides +1 Food, +1 Faith. Bonus +1 Culture if adjacent to a city and +1 Gold if adjacent to a River. Gains +1 Food at Civil Service and +1 Faith at Theology.
-        `
+        description: `Available at Trapping. May only be constructed on flat Plains or flatland Deer / Bison resources and must be adjacent to a Luxury resource. Provides +1 Food, +1 Faith. Bonus +1 Culture if adjacent to a city and +1 Gold if adjacent to a River. Gains +1 Food at Civil Service and +1 Faith at Theology.`
       }
     ],
     bias: ["Plains"],
@@ -2463,17 +2314,13 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Carolean",
         replaces: "Musketmen",
-        description: `
-        3 Movement (vs. 2). Identical strength; arrives with March (heal 10 HP each turn even if an action was performed).
-        `
+        description: `3 Movement (vs. 2). Identical strength; arrives with March (heal 10 HP each turn even if an action was performed).`
       },
       {
         type: "Building",
         name: "Falu Gruva",
         replaces: "Ironworks",
-        description: `
-        In addition to the typical perks, provides +1 Production to all Hill tiles in the City. Provides +6 Tourism at Flight.
-        `
+        description: `In addition to the typical perks, provides +1 Production to all Hill tiles in the City. Provides +6 Tourism at Flight.`
       }
     ],
     bias: ["Tundra"],
@@ -2491,10 +2338,7 @@ export const Civs:Array<Civilization> = [
         type: "Building",
         name: "Ski Resort",
         replaces: "Stadium",
-        description: `
-        Available at Electricity (instead of Refrigeration). Provides +3 Happiness (vs. 2), +3 Culture, and +5 Tourism. Provides an additional +5 Tourism and +2 Gold for every Mountain within 3 tiles of the City; this bonus will only stack 5 times.
-        Half as costly to construct (165 hammers vs. 330) and doesn't require Gold maintenance. Doesn't require a Zoo to construct.
-        `
+        description: `Available at Electricity (instead of Refrigeration). Provides +3 Happiness (vs. 2), +3 Culture, and +5 Tourism. Provides an additional +5 Tourism and +2 Gold for every Mountain within 3 tiles of the City; this bonus will only stack 5 times.\nHalf as costly to construct (165 hammers vs. 330) and doesn't require Gold maintenance. Doesn't require a Zoo to construct.`
       },
       {
         type: "Building",
@@ -2508,9 +2352,7 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Reisläufer",
         replaces: "Nothing",
-        description: `
-        A unique Unit only available by completing Reisläufer Posts. Comparable to Longswordsmen with 20 Strength and 3 Movement. Receives Gold from defeated foes equal to twice their Strength.
-        `
+        description: `A unique Unit only available by completing Reisläufer Posts. Comparable to Longswordsmen with 20 Strength and 3 Movement. Receives Gold from defeated foes equal to twice their Strength.`
       }
     ],
     bias: ["Hills"],
@@ -2528,17 +2370,13 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Dalai Lama",
         replaces: "Great Prophets",
-        description: `
-        No vision penalty and may spread Religion 1 extra time. May also start 7-turn Golden Ages (consuming the unit).
-        `
+        description: `No vision penalty and may spread Religion 1 extra time. May also start 7-turn Golden Ages (consuming the unit).`
       },
       {
         type: "Improvement",
         name: "Monastery",
         replaces: "Nothing",
-        description: `
-        Available at Calendar. Can only be built on Hills. Provides +2 Faith and +1 Culture; +1 additional Faith at Theology. +1 Culture for each adjacent Mountain. May be built in Forests and Jungles without removing them.
-        `
+        description: `Available at Calendar. Can only be built on Hills. Provides +2 Faith and +1 Culture; +1 additional Faith at Theology. +1 Culture for each adjacent Mountain. May be built in Forests and Jungles without removing them.`
       }
     ],
     bias: [],
@@ -2556,18 +2394,13 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Marathi Rider",
         replaces: "Horsemen",
-        description: `
-        Medieval Air Unit available at Chivalry. Requires 1 Horse; has 5 Range and 19 Combat Strength. Behaves as an Air Unit, and receives the appropriate promotions.
-        `
+        description: `Medieval Air Unit available at Chivalry. Requires 1 Horse; has 5 Range and 19 Combat Strength. Behaves as an Air Unit, and receives the appropriate promotions.`
       },
       {
         type: "Building",
         name: "Serai",
         replaces: "Caravansary",
-        description: `
-        Instead of providing +2 Gold at base, provides +1 Gold for every 3 Citizens in the City and otherwise retains the typical perks. Allows units to Airlift between Cities with Serais and increases Air Unit capacity in the City by 1. More costly to construct (67 hammers vs. 60).
-        (This bonus scales linearly. In practice, each Citizen provides +0.33 Gold.)
-        `
+        description: `Instead of providing +2 Gold at base, provides +1 Gold for every 3 Citizens in the City and otherwise retains the typical perks. Allows units to Airlift between Cities with Serais and increases Air Unit capacity in the City by 1. More costly to construct (67 hammers vs. 60).\n(This bonus scales linearly. In practice, each Citizen provides +0.33 Gold.)`
       }
     ],
     bias: [],
@@ -2585,9 +2418,7 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Matato'a",
         replaces: "Archer",
-        description: `
-        3 Movement (vs. 2) and +1 Sight; these bonuses are lost with upgrades. Cheaper to construct (20 hammers vs. 26). Obsolete at Machinery. Cannot upgrade from Ruins.
-        `
+        description: `3 Movement (vs. 2) and +1 Sight; these bonuses are lost with upgrades. Cheaper to construct (20 hammers vs. 26). Obsolete at Machinery. Cannot upgrade from Ruins.`
       },
       {
         type: "Building",
@@ -2611,17 +2442,13 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Kuva-yi Milliye",
         replaces: "Great War Infantry",
-        description: `
-        Weaker (47 Strength vs. 50), but boasts 3 Movement (vs. 2). Gains a +50% Combat Bonus when initiating combat, and may upgrade to Infantry for only 10 Gold.
-        `
+        description: `Weaker (47 Strength vs. 50), but boasts 3 Movement (vs. 2). Gains a +50% Combat Bonus when initiating combat, and may upgrade to Infantry for only 10 Gold.`
       },
       {
         type: "Building",
         name: "Halkevleri",
         replaces: "Public School",
-        description: `
-        In addition to typical perks, provides +3 Culture and is 20% cheaper to construct (160 hammers vs. 200).
-        `
+        description: `In addition to typical perks, provides +3 Culture and is 20% cheaper to construct (160 hammers vs. 200).`
       }
     ],
     bias: [],
@@ -2639,17 +2466,13 @@ export const Civs:Array<Civilization> = [
         type: "Building",
         name: "Burj",
         replaces: "Hotel",
-        description: `
-        Available at Radio (instead of Refrigeration). Compared to the Hotel, the Burj provides +2 Gold and Culture to Great Person Improvements and Desert tiles in the City (with the exception of Floodplains).
-        `
+        description: `Available at Radio (instead of Refrigeration). Compared to the Hotel, the Burj provides +2 Gold and Culture to Great Person Improvements and Desert tiles in the City (with the exception of Floodplains).`
       },
       {
         type: "Unit",
         name: "Qasimi Raider",
         replaces: "Privateer",
-        description: `
-        Earns twice as much Gold from pillaging Trade Routes and attacking Cities. 8 Movement (vs. 6), and 20% cheaper to construct (80 hammers vs. 100).
-        `
+        description: `Earns twice as much Gold from pillaging Trade Routes and attacking Cities. 8 Movement (vs. 6), and 20% cheaper to construct (80 hammers vs. 100).`
       }
     ],
     bias: ["Coast"],
@@ -2667,17 +2490,13 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Tachanka",
         replaces: "Gatling Gun",
-        description: `
-        2 Range and 4 Movement. Suffers the same Movement and Defensive Penalties as all Mounted Units.
-        `
+        description: `2 Range and 4 Movement. Suffers the same Movement and Defensive Penalties as all Mounted Units.`
       },
       {
         type: "Building",
         name: "Knyaz Court",
         replaces: "Market",
-        description: `
-        In addition to the typical perks, provides an additional point of Gold at base (2 vs. 1). Each Knyaz Court in the empire generates 20 Gold whenever Ukraine consumes a Great Person.
-        `
+        description: `In addition to the typical perks, provides an additional point of Gold at base (2 vs. 1). Each Knyaz Court in the empire generates 20 Gold whenever Ukraine consumes a Great Person.`
       }
     ],
     bias: [],
@@ -2701,9 +2520,7 @@ export const Civs:Array<Civilization> = [
         type: "Building",
         name: "Grand Canal of Venice",
         replaces: "East India Company",
-        description: `
-        Compared to the East India Company, provides an additional free Trade Route for a total of an additional two; boosts Gold generation in the City by an additional +15%, and does not require Markets in every City to produce. Available at Currency instead of Guilds.
-        `
+        description: `Compared to the East India Company, provides an additional free Trade Route for a total of an additional two; boosts Gold generation in the City by an additional +15%, and does not require Markets in every City to produce. Available at Currency instead of Guilds.`
       }
     ],
     bias: ["Coast"],
@@ -2721,20 +2538,13 @@ export const Civs:Array<Civilization> = [
         type: "Unit",
         name: "Viet Cong",
         replaces: "Infantry",
-        description: `
-        Moves further (3 Movement vs. 2). When initiating combat, performs a bonus Ranged Attack prior to Melee combat. Gains a +25% Combat Bonus against Gunpowder units.
-        This Unit may traverse mountains, taking 50 HP damage if it ends its turn on one.
-        Cheaper to construct (233 hammers vs. 280).
-        `
+        description: `Moves further (3 Movement vs. 2). When initiating combat, performs a bonus Ranged Attack prior to Melee combat. Gains a +25% Combat Bonus against Gunpowder units.\nThis Unit may traverse mountains, taking 50 HP damage if it ends its turn on one.\nCheaper to construct (233 hammers vs. 280).`
       },
       {
         type: "Building",
         name: "Vo Khi",
         replaces: "Armory",
-        description: `
-        In addition to the typical perks, provides +1 Food, +1 Culture and
-        +1 Production from Marsh tiles and +1 Culture from Jungle tiles. All Melee Units trained in this City receive the Woodsman promotion (units move twice as fast through Forest and Jungle tiles). Doesn't require Barracks to construct.
-        `
+        description: `In addition to the typical perks, provides +1 Food, +1 Culture and\n+1 Production from Marsh tiles and +1 Culture from Jungle tiles. All Melee Units trained in this City receive the Woodsman promotion (units move twice as fast through Forest and Jungle tiles). Doesn't require Barracks to construct.`
       }
     ],
     bias: ["Wetlands"],
@@ -2758,13 +2568,7 @@ export const Civs:Array<Civilization> = [
         type: "Improvement",
         name: "Caer",
         replaces: "Nothing",
-        description: `
-        Available at Chivalry. +3 Gold, +1 Culture, and +1 Production. Units gain a +25% Combat Bonus defending this tile. +1 Culture at Acoustics. Receives bonus yields from certain policies:
-        +1 Culture from Cultural Exchange,
-        +1 Science from Free Thought,
-        +1 Food from completing the Commerce tree.
-        May only be built on Hills without resources.
-        `
+        description: `Available at Chivalry. +3 Gold, +1 Culture, and +1 Production. Units gain a +25% Combat Bonus defending this tile. +1 Culture at Acoustics. Receives bonus yields from certain policies:\n+1 Culture from Cultural Exchange,\n+1 Science from Free Thought,\n+1 Food from completing the Commerce tree.\nMay only be built on Hills without resources.`
       }
     ],
     bias: ["Hills"],
@@ -2812,9 +2616,7 @@ export const Civs:Array<Civilization> = [
         type: "Building",
         name: "Stone Mason",
         replaces: "Stoneworks",
-        description: `
-        +2 Culture at Masonry, and otherwise retains the typical perks. Doesn't require any nearby resources to construct.
-        `
+        description: `+2 Culture at Masonry, and otherwise retains the typical perks. Doesn't require any nearby resources to construct.`
       }
     ],
     bias: ["Hills"],
@@ -2832,12 +2634,7 @@ export const Civs:Array<Civilization> = [
         type: "Building",
         name: "Ikanda",
         replaces: "Barracks",
-        description: `
-        Grants the Buffalo Horns promotion to all pre-Gunpowder Melee Units trained in the City and allows these Units to earn the Buffalo Chest and Loins promotions.
-        Horns: +1 Movement, +25% Flanking Bonus, and +10% defensive Strength against Ranged attacks
-        Chest: +10% Bonus in Open Terrain, an additional +25% Flanking Bonus, and an additional +10% defensive Strength against Ranged attacks (requires Horns)
-        Loins: +10% Combat Strength, an additional +25% Flanking Bonus, and an additional +10% defensive Strength against Ranged attacks (requires Chest)
-        `
+        description: `Grants the Buffalo Horns promotion to all pre-Gunpowder Melee Units trained in the City and allows these Units to earn the Buffalo Chest and Loins promotions.\nHorns: +1 Movement, +25% Flanking Bonus, and +10% defensive Strength against Ranged attacks\nChest: +10% Bonus in Open Terrain, an additional +25% Flanking Bonus, and an additional +10% defensive Strength against Ranged attacks (requires Horns)\nLoins: +10% Combat Strength, an additional +25% Flanking Bonus, and an additional +10% defensive Strength against Ranged attacks (requires Chest)`
       },
       {
         type: "Unit",
