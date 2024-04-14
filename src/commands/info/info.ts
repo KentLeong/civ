@@ -44,7 +44,7 @@ module.exports = {
 
     //remove spaces
     let civName = civ.name.replace(/ /g, "");
-    const file = new AttachmentBuilder("src/data/icons/cb_"+civName.toLowerCase()+".png");
+    const file = new AttachmentBuilder("src/assets/icons/cb_"+civName.toLowerCase()+".png");
 
     const embed = new EmbedBuilder()
       .setTitle(civ.name +" - " + civ.leader)

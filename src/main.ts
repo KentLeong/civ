@@ -1,7 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config();
 import { CommandClient } from "./models/client";
-import { Events } from "discord.js";
 import fs from "fs";
 import path from "path";
 
@@ -34,46 +33,13 @@ const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js') || file.endsWith('.ts'));
 
 for (const file of eventFiles) {
-  const filePath = path.join(eventsPath, file);
-  const event = require(filePath);
-  if (!event.name || !event.execute) {
-    throw new Error(`Event ${file} is missing a name or execute property`);
-  }
-  if (event.once) {
-    client.once(event.name, (...args) => event.execute(client, ...args));
-  } else {
-    client.on(event.name, (...args) => event.execute(client, ...args));
-  }
+	const filePath = path.join(eventsPath, file);
+	const event = require(filePath);
+	if (event.once) {
+		client.once(event.name, (...args) => event.execute(...args));
+	} else {
+		client.on(event.name, (...args) => event.execute(...args));
+	}
 }
-
-// handles command interactions
-client.on(Events.InteractionCreate, async interaction => {
-  if (interaction.isChatInputCommand()) {
-    if (!interaction.isCommand()) return;
-    const { commandName } = interaction;
-    const command = client.commands.get(commandName);
-    if (!command) return;
-    try {
-      await command.execute(interaction, interaction.options);
-    } catch (error) {
-      console.error(error);
-      await interaction.reply({ content: "There was an error while executing this command!", ephemeral: true });
-    }
-  } else if (interaction.isAutocomplete()) {
-		const command:any = client.commands.get(interaction.commandName);
-
-		if (!command) {
-			console.error(`No command matching ${interaction.commandName} was found.`);
-			return;
-		}
-
-		try {
-			await command.autocomplete(interaction);
-		} catch (error) {
-			console.error(error);
-		}
-  }
-
-});
 
 client.login(process.env.DISCORD_TOKEN || "");
