@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 import { Civilization } from "../types";
 
-const uniqueSchema = new mongoose.Schema({
-  type: String,
-  name: String,
-  replaces: String,
-  description: String
-});
+// const uniqueSchema = new mongoose.Schema({
+//   type: String,
+//   name: String,
+//   replaces: String,
+//   description: String
+// });
 
 export const CivSchema = new mongoose.Schema<Civilization>({
   name: {type: String, unique: true, required: true},
@@ -15,7 +15,15 @@ export const CivSchema = new mongoose.Schema<Civilization>({
     name: String,
     description: String,
   },
-  unique: [uniqueSchema],
+  unique: [{
+    type: Object,
+    value: {
+      type: String,
+      name: String,
+      replaces: String,
+      description: String,
+    }
+  }],
   bias: [String],
   avoid: [String],
 });
