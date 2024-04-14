@@ -1,6 +1,6 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
 import { User } from "../../mongo";
-import { perm } from "../../lib/perm";
+import { perm } from "../../lib";
 
 module.exports = {
   data: new SlashCommandBuilder()

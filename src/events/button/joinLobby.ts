@@ -1,11 +1,11 @@
 import { User, Game } from "../../mongo";
-import { lobby } from "../../lib";
+import { lobby, isPlayerInLobby } from "../../lib";
 
 export default async (interaction: any) => {
   const user = await User.findOne({ discordId: interaction.user.id });
   if (!user) {
     await interaction.reply("You need to sign up first.");
-    return;
+    return false;
   }
 
   const game = await Game.findOne({
@@ -13,16 +13,16 @@ export default async (interaction: any) => {
   })
   if (!game) {
     await interaction.reply("Game not found.");
-    return;
+    return false;
   } else if (game.state !== "lobby") {
     await interaction.reply("Game is not in lobby state.");
-    return;
+    return false;
   }
 
-  const playerExists = game.players.find((player) => player.discordId === interaction.user.id);
-  if (playerExists) {
-    await interaction.reply("You have already joined the game.");
-    return;
+  let exists = await isPlayerInLobby(game, interaction);
+  if (exists) {
+    await interaction.reply("You are already in the game.", { ephemeral: true });
+    return false;
   }
 
   const playerCount = game.players.length;
