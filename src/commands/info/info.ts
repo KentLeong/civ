@@ -59,12 +59,12 @@ module.exports = {
     description += "```\n";
 
     // Ability Name
-    let t = 46 - civ.ability.name.length - 9;
+    let t = 46 - civ.ability.name.length;
     let l = Math.floor(t/2);
     if (t % 2 == 0) {
-      description += "```fix\n" + " ".repeat(l) + "Ability: "+civ.ability.name + " ".repeat(l) + "```";
+      description += "```fix\n" + " ".repeat(l) +civ.ability.name + " ".repeat(l) + "```";
     } else {
-      description += "```fix\n" + " ".repeat(l) + "Ability: "+civ.ability.name + " ".repeat(l+1) + "```";
+      description += "```fix\n" + " ".repeat(l) +civ.ability.name + " ".repeat(l+1) + "```";
     }
 
     // Ability Description
