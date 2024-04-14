@@ -44,7 +44,7 @@ module.exports = {
           discordId: interaction.user.id,
           name: user.name,
           role: "host",
-          bans: [],
+          bans: user.bans,
           civ: "",
           team: 1,
           pool: []

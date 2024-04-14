@@ -2,7 +2,7 @@ import { EmbedBuilder, AttachmentBuilder, ButtonBuilder, ButtonStyle, ActionRowB
 import { Game } from "../../mongo";
 
 export default async (interaction: any, game: Game) => {
-  let description = "```fix\n"+" ".repeat(20)+"Civ 5 "+" ".repeat(20)+"```\n";
+  let description = "```fix\n"+" ".repeat(20)+"Civ 5 "+" ".repeat(20)+"\n";
   const file = new AttachmentBuilder("src/assets/civ5.png");
   const embed = new EmbedBuilder()
     .setThumbnail("attachment://civ5.png")
@@ -25,11 +25,11 @@ export default async (interaction: any, game: Game) => {
     .addComponents(join, leave, draft);
 
   game.players.forEach((player, i) => {
-    description += "```"+(i+1)+". "+player.name;
-    if (player.bans.length > 0) {
-      description += "\nBans: None```";
+    description += "```bash\n"+(i+1)+". "+player.name;
+    if (player.bans.length == 0) {
+      description += "\n# Bans: None```";
     } else {
-      description += "\nBans: "+player.bans.join(", ")+"```";
+      description += "\n# Bans: "+player.bans.join(", ")+"```";
     }
   });
   description += "\nYou can set your bans by using the /ban command.";

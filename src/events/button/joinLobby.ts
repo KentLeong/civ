@@ -40,7 +40,7 @@ export default async (interaction: any) => {
     discordId: interaction.user.id,
     name: user.name,
     role: "player",
-    bans: [],
+    bans: user.bans,
     civ: "",
     team: playerCount +1,
     pool: []
