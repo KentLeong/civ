@@ -1,5 +1,6 @@
 import { EmbedBuilder, AttachmentBuilder } from "discord.js";
 import { Game } from "../../mongo";
+import expireReply from "../expireReply";
 
 export default async (interaction: any, game: Game) => {
   let description = "```fix\n"+" ".repeat(20)+"Civ 5 "+" ".repeat(20)+"```\n";
@@ -19,6 +20,7 @@ export default async (interaction: any, game: Game) => {
   const message = await interaction.client.channels.cache.get(process.env.CHANNEL_ID || "")?.messages.fetch(game.messageId);
   if (!message) {
     await interaction.reply({ content: "Game not found.", ephemeral: true });
+    expireReply(interaction);
     return;
   }
   await message.edit({ embeds: [embed], files: [file]});
