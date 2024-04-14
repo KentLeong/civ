@@ -1,5 +1,12 @@
-import { SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
+import { SlashCommandBuilder, ChatInputCommandInteraction, AutocompleteInteraction } from "discord.js";
+import { Civ } from "../../main";
 import { Civs } from "../../data/civs";
+import { Civilization } from "../../types";
+
+const civs:string[] = []
+Civs.forEach((civ:Civilization) => {
+  civs.push(civ.name);
+});
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -8,11 +15,24 @@ module.exports = {
     .addStringOption(option =>
       option.setName("civ")
         .setDescription("The name of the civilization")
+        .setAutocomplete(true)
         .setRequired(true)
     ),
-  async execute(msg: ChatInputCommandInteraction) {
-    console.log(msg)
-    const opt = msg.options.getString("civ") || "";
-    await msg.reply(opt);
+  async autocomplete(interaction: AutocompleteInteraction) {
+    const focusedValue = interaction.options.getFocused()?.toLocaleLowerCase();
+    if (!focusedValue) return;
+
+    const civsLowerCase = civs.map(civ => civ.toLowerCase());
+    const filtered = civsLowerCase.filter(civ => civ.startsWith(focusedValue));
+    const suggestions = filtered.map(civLowerCase => {
+      const originalCiv = civs[civsLowerCase.indexOf(civLowerCase)];
+      return { name: originalCiv, value: originalCiv };
+    });
+  
+    await interaction.respond(suggestions);
+  },
+  async execute(interaction: ChatInputCommandInteraction) {
+    const opt = interaction.options.getString("civ") || "";
+    await interaction.reply(opt);
   },
 }

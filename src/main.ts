@@ -33,24 +33,34 @@ client.on(Events.ClientReady, () => {
   console.log("Ready!");
 });
 
-
 // handles command interactions
 client.on(Events.InteractionCreate, async interaction => {
-  console.log("hello")
-  if (!interaction.isCommand()) return;
+  if (interaction.isChatInputCommand()) {
+    if (!interaction.isCommand()) return;
+    const { commandName } = interaction;
+    const command = client.commands.get(commandName);
+    if (!command) return;
+    try {
+      await command.execute(interaction, interaction.options);
+    } catch (error) {
+      console.error(error);
+      await interaction.reply({ content: "There was an error while executing this command!", ephemeral: true });
+    }
+  } else if (interaction.isAutocomplete()) {
+		const command:any = client.commands.get(interaction.commandName);
 
-  const { commandName } = interaction;
+		if (!command) {
+			console.error(`No command matching ${interaction.commandName} was found.`);
+			return;
+		}
 
-  const command = client.commands.get(commandName);
-
-  if (!command) return;
-
-  try {
-    await command.execute(interaction, interaction.options);
-  } catch (error) {
-    console.error(error);
-    await interaction.reply({ content: "There was an error while executing this command!", ephemeral: true });
+		try {
+			await command.autocomplete(interaction);
+		} catch (error) {
+			console.error(error);
+		}
   }
+
 });
 
 client.login(process.env.DISCORD_TOKEN || "");
