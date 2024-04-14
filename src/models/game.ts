@@ -4,25 +4,26 @@ import { Game } from "../types";
 export const GameSchema = new mongoose.Schema<Game>({
   id: {type: String, unique: true, required: true},
   host: {type: String, required: true},
-  state: String,
-  mode: String,
+  state: {type: String, required: true},
   players: [{
     type: Object,
     value: {
-      name: String,
-      discordId: String,
+      name: {type: String, required: true},
+      discordId: {type: String, required: true},
       bans: [String],
       civ: String,
       team: Number,
-      pool: [String]
+      pool: [String],
     }
   }],
-  season: {type: Number, required: true},
-  turn: Number,
-  startedAt: Date,
-  endedAt: Date,
-  gameLength: Number,
-  outcome: String,
-  ranked: Boolean,
-  modVer: String,
+  settings: {
+    type: Object,
+    value: {
+      bans: Number,
+      mode: String,
+      ranked: Boolean,
+      modVer: String,
+      map: String
+    }
+  }
 });

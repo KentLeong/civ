@@ -14,17 +14,27 @@ export interface User {
 export interface Game {
   id: string;
   host: string;
-  state: string;
-  mode: string;
+  state: GameState;
   players: Player[];
+  settings: GameSettings;
+}
+
+type GameState = "lobby" | "started" | "draft" | "ingame" | "done";
+
+export interface GameStats {
   season: number;
   turn: number;
   startedAt: Date;
   endedAt: Date;
   gameLength: number;
   outcome: string;
+}
+export interface GameSettings {
+  bans: number;
+  mode: string;
   ranked: boolean;
   modVer: string;
+  map: string;
 }
 
 export interface Player {
