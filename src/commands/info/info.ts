@@ -42,11 +42,13 @@ module.exports = {
       return;
     }
 
-    const file = new AttachmentBuilder("src/data/icons/cb_"+civ.name.toLowerCase()+".png");
+    //remove spaces
+    let civName = civ.name.replace(/ /g, "");
+    const file = new AttachmentBuilder("src/data/icons/cb_"+civName.toLowerCase()+".png");
 
     const embed = new EmbedBuilder()
       .setTitle(civ.name +" - " + civ.leader)
-      .setThumbnail("attachment://cb_"+civ.name.toLowerCase()+".png")
+      .setThumbnail("attachment://cb_"+civName.toLowerCase()+".png")
 
     // Bias and Avoid
     let description = "```Bias: None";
