@@ -1,4 +1,4 @@
-import { SlashCommandBuilder, ChatInputCommandInteraction, AutocompleteInteraction } from "discord.js";
+import { AttachmentBuilder, EmbedBuilder, SlashCommandBuilder, ChatInputCommandInteraction, AutocompleteInteraction } from "discord.js";
 import { Civ } from "../../mongo";
 import { Civs } from "../../data/civs";
 import { Civilization } from "../../types";
@@ -33,12 +33,62 @@ module.exports = {
   },
   async execute(interaction: ChatInputCommandInteraction) {
     const opt = interaction.options.getString("civ") || "";
-    await interaction.reply(opt);
 
     const civ = await Civ.findOne({
       name: opt
     });
+    if (!civ) {
+      await interaction.reply("Civ not found");
+      return;
+    }
 
+    const file = new AttachmentBuilder("src/data/icons/cb_"+civ.name.toLowerCase()+".png");
+
+    const embed = new EmbedBuilder()
+      .setTitle(civ.name +" - " + civ.leader)
+      .setThumbnail("attachment://cb_"+civ.name.toLowerCase()+".png")
+
+    // Bias and Avoid
+    let description = "```Bias: None";
+    if (civ.bias.length > 0) {
+      description = "```Bias: " + civ.bias.join(", ");
+    }
+    if (civ.avoid.length > 0) {
+      description += "\nAvoid: " + civ.avoid.join(", ");
+    }
+    description += "```\n";
+
+    // Ability Name
+    let t = 46 - civ.ability.name.length - 9;
+    let l = Math.floor(t/2);
+    if (t % 2 == 0) {
+      description += "```fix\n" + " ".repeat(l) + "Ability: "+civ.ability.name + " ".repeat(l) + "```";
+    } else {
+      description += "```fix\n" + " ".repeat(l) + "Ability: "+civ.ability.name + " ".repeat(l+1) + "```";
+    }
+
+    // Ability Description
+    description += "```"+civ.ability.description + "```\n";
+
+    // Uniques
+    civ.unique.forEach((unique:any) => {
+      // unique type + replacement
+      if (unique.replaces == "Nothing") {
+        unique.replaces = "Unique";
+      }
+      let t = 46 - unique.name.length - unique.replaces.length - 3;
+      let l = Math.floor(t/2);
+      if (t % 2 == 0) {
+        description += "```fix\n" + " ".repeat(l) + unique.name + " - "+unique.replaces + " ".repeat(l)+"```";
+      } else {
+        description += "```fix\n" + " ".repeat(l) + unique.name + " - "+unique.replaces + " ".repeat(l+1)+"```";
+      }
+
+      // unique description
+      description += "```"+unique.description + "```\n";
+    });
+    embed.setDescription(description);
+    await interaction.reply({ embeds: [embed], files: [file]});
     console.log(civ);
   },
 }

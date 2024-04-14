@@ -1389,9 +1389,7 @@ export const Civs:Array<Civilization> = [
         type: "Improvement",
         name: "Sacred Grove",
         replaces: "Nothing",
-        description: `
-        Provides +1 Food, Production, Culture, Science and Faith. Each yield increases by +1 upon the discovery of Philosophy, Theology, Acoustics, Archeology, Plastics, Computers, and the Internet (for a total of 8 of each yield).
-        `
+        description: `Provides +1 Food, Production, Culture, Science and Faith. Each yield increases by +1 upon the discovery of Philosophy, Theology, Acoustics, Archeology, Plastics, Computers, and the Internet (for a total of 8 of each yield).`
       },
       {
         type: "Unit",
