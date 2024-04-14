@@ -57,22 +57,22 @@ module.exports = {
     });
 
     const join = new ButtonBuilder()
-      .setCustomId("join")
+      .setCustomId("joinLobby")
       .setLabel("Join")
       .setStyle(ButtonStyle.Primary);
 
     const leave = new ButtonBuilder()
-      .setCustomId("leave")
+      .setCustomId("leaveLobby")
       .setLabel("Leave")
       .setStyle(ButtonStyle.Danger);
 
-    const start = new ButtonBuilder()
-      .setCustomId("start")
-      .setLabel("Start")
+    const draft = new ButtonBuilder()
+      .setCustomId("draftLobby")
+      .setLabel("Draft")
       .setStyle(ButtonStyle.Success);
 
     const row: any = new ActionRowBuilder()
-      .addComponents(join, leave, start);
+      .addComponents(join, leave, draft);
     let display = await lobby(newGame);
     await interaction.channel?.send({ embeds: [display], components: [row]})
       .then(async (msg) => {

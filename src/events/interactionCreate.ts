@@ -1,4 +1,5 @@
 import { Events } from "discord.js";
+import buttonHandler from "./button";
 
 module.exports = {
   name: Events.InteractionCreate,
@@ -20,12 +21,13 @@ module.exports = {
         console.error(`No command matching ${interaction.commandName} was found.`);
         return;
       }
-  
       try {
         await command.autocomplete(interaction);
       } catch (error) {
         console.error(error);
       }
+    } else if (interaction.isButton()) {
+      await buttonHandler(interaction)
     }
   },
 }
