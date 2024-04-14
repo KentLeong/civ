@@ -33,7 +33,7 @@ const rest = new REST({ version: "10" }).setToken(DiscordToken);
     console.log("Started refreshing application (/) commands.");
 
     commands.forEach(async (command: any) => {
-      console.log(`Registering ${command.name}`);
+      console.log(`Deploying command: ${command.name}`);
     });
 
     await rest.put(Routes.applicationGuildCommands(ClientID, GuildID), {
@@ -41,7 +41,9 @@ const rest = new REST({ version: "10" }).setToken(DiscordToken);
     });
 
     console.log("Successfully reloaded application (/) commands.");
+    process.exit(0);
   } catch (error) {
     console.error(error);
+    process.exit(1);
   }
 })();

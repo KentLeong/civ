@@ -271,30 +271,6 @@ export const Civs:Array<Civilization> = [
     leader: "Nebuchadnezzar II",
     ability: {
       name: "Ingenuity",
-      description: "Great Scientists are earned 50% faster. Receive a free Great Scientist upon researching Writing."
-    },
-    unique: [
-      {
-        type: "Building",
-        name: "Walls of Babylon",
-        replaces: "Walls",
-        description: "Available at Masonry (instead of Construction). Provides +2 Science and +1 Culture. Provides a free Great Scientist when constructed."
-      },
-      {
-        type: "Unit",
-        name: "Sabum Kibittum",
-        replaces: "Spearman",
-        description: "Has a 50% chance to withdraw from Melee attacks. Receives a +25% Combat Bonus when attacking and a +25% Combat Bonus when defending in friendly territory."
-      }
-    ],
-    bias: [],
-    avoid: []
-  },
-  {
-    name: "Babylon",
-    leader: "Nebuchadnezzar II",
-    ability: {
-      name: "Ingenuity",
       description: "Receive a free Great Scientist in the Capital when you discover Philosophy (previously Writing). Earn Great Scientists +25% (from +50%) faster."
     },
     unique: [

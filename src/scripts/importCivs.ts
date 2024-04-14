@@ -1,13 +1,17 @@
-import { Civ } from "../main";
+import dotenv from "dotenv";
+dotenv.config();
+import { Civ } from "../mongo";
 import { Civs } from "../data/civs";
 import { Civilization } from "../types";
 
-export const importCivs = async () => {
-  await Civs.forEach(async (civ: Civilization) => {
+console.log("Importing civs...");
+try {
+  Civs.forEach(async (civ: Civilization) => {
+    console.log("Importing civ: " + civ.name)
     try {
       const existingCiv = await Civ.findOne({ name: civ.name });
       if (existingCiv) {
-        Civ.deleteOne({
+        await Civ.deleteOne({
           name: civ.name
         });
       }
@@ -17,4 +21,6 @@ export const importCivs = async () => {
       console.error(error);
     }
   });
+} catch (error) {
+  console.error(error);
 }

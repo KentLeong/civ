@@ -1,5 +1,5 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction, AutocompleteInteraction } from "discord.js";
-import { Civ } from "../../main";
+import { Civ } from "../../mongo";
 import { Civs } from "../../data/civs";
 import { Civilization } from "../../types";
 
@@ -34,5 +34,11 @@ module.exports = {
   async execute(interaction: ChatInputCommandInteraction) {
     const opt = interaction.options.getString("civ") || "";
     await interaction.reply(opt);
+
+    const civ = await Civ.findOne({
+      name: opt
+    });
+
+    console.log(civ);
   },
 }

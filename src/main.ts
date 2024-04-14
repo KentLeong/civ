@@ -1,12 +1,11 @@
 import dotenv from "dotenv";
 dotenv.config();
-import mongoose from "mongoose";
 import { CommandClient } from "./models/client";
 import { Events } from "discord.js";
 import fs from "fs";
 import path from "path";
-import { importCivs } from "./scripts/importCivs";
-import { CivSchema } from "./models/civ";
+
+console.log("Starting bot...");
 
 const client = new CommandClient();
 // registers all commands
@@ -18,6 +17,7 @@ for (const folder of commandFolders) {
 	const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
   for (const file of commandFiles) {
+    console.log("Registering command: " + file)
     const filePath = path.join(commandsPath, file);
     const command = require(filePath);
 
@@ -30,7 +30,7 @@ for (const folder of commandFolders) {
 }
 
 client.on(Events.ClientReady, () => {
-  console.log("Ready!");
+  console.log("Civ bot is now ready!");
 });
 
 // handles command interactions
@@ -64,11 +64,3 @@ client.on(Events.InteractionCreate, async interaction => {
 });
 
 client.login(process.env.DISCORD_TOKEN || "");
-const mongo = mongoose.createConnection(process.env.MONGO_CRED || "").useDb("civ")
-
-export var Civ = mongo.model("Civilization", CivSchema);
-mongo.on("error", console.error.bind(console, "connection error:"));
-mongo.once("open", async () => {
-  console.log("Connected to MongoDB");
-  await importCivs();
-});

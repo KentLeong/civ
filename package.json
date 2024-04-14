@@ -5,10 +5,11 @@
   "main": "dist/main.js",
   "scripts": {
     "clean": "rm -rf dist",
-    "start": "rm -rf dist && tsc && node dist/scripts/deployCommands.js && node dist/main.js",
-    "import-civs": "node dist/scripts/importCivs.js",
+    "start": "npm run commands && node dist/main.js",
+    "commands": "npm run build && node dist/scripts/deployCommands.js",
+    "import-civs": "npm run build && node dist/scripts/importCivs.js",
     "dev": "ts-node src/main.ts",
-    "build": "tsc"
+    "build": "npm run clean && tsc"
   },
   "dependencies": {
     "discord.js": "^14.14.1",
