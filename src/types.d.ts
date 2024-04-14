@@ -13,6 +13,7 @@ export interface User {
 
 export interface Game {
   id: string;
+  messageId: string;
   host: string;
   state: GameState;
   players: Player[];

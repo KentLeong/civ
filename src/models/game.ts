@@ -3,6 +3,7 @@ import { Game } from "../types";
 
 export const GameSchema = new mongoose.Schema<Game>({
   id: {type: String, unique: true, required: true},
+  messageId: String,
   host: {type: String, required: true},
   state: {type: String, required: true},
   players: [{
