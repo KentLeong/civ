@@ -1,7 +1,7 @@
 import { EmbedBuilder } from "discord.js";
 import { Game } from "../types";
 
-export const lobby = async (game: Game): Promise<EmbedBuilder> => {
+export default async (game: Game): Promise<EmbedBuilder> => {
   const embed = new EmbedBuilder()
   let description = "";
   if (game.state === "lobby") {
