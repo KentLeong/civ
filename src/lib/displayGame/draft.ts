@@ -1,5 +1,6 @@
 import { AttachmentBuilder, EmbedBuilder, ButtonStyle, ButtonBuilder, ActionRowBuilder } from "discord.js";
 import { Game } from "../../mongo";
+import { expireReply } from "../../lib";
 
 export default async (interaction:any, game: Game) => {
   let description = "```fix\n"+" ".repeat(20)+"Civ 5 "+" ".repeat(20)+"```\n";
@@ -36,5 +37,13 @@ export default async (interaction:any, game: Game) => {
     });
     description += "```";
   });
-  description += "\nYou can set your bans by using the /ban command.";
+  description += "\nYou can trade with other players with `/trade @player`.";
+  embed.setDescription(description);
+  const message = await interaction.client.channels.cache.get(process.env.GAME_CHANNEL_ID || "")?.messages.fetch(game.messageId);
+  if (!message) {
+    await interaction.reply({ content: "Game not found.", ephemeral: true });
+    expireReply(interaction);
+    return;
+  }
+  await message.edit({ embeds: [embed], files: [file]});
 }
