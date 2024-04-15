@@ -24,6 +24,18 @@ export default async (interaction:any, game: Game) => {
   const row: any = new ActionRowBuilder()
     .addComponents(revert, redraft, ready);
 
+  // lists the banned civs
+  const bans:string[] = []
+  description += "```bash\n#  Banned: ";
+  game.players.forEach((player) => {
+    if (player.bans.length > 0) {
+      bans.push(...player.bans);
+    }
+  });
+  // remove duplicates
+  bans.filter((value, index) => bans.indexOf(value) === index);
+  description += bans.join(", ")+"```";
+
   game.players.forEach((player, i) => {
     if (player.civ == "") {
       description += "```bash\n"+(i+1)+". "+player.name+"\n# ";
@@ -33,7 +45,7 @@ export default async (interaction:any, game: Game) => {
       description += "```bash\n"+(i+1)+". "+player.name+" - "+player.civ+" ✅\n# ";
     }
     player.pool.forEach((civ: string, e: number) => {
-      description += (e+1)+". "+civ+" ";
+      description += " "+civ+" ";
     });
     description += "```";
   });
