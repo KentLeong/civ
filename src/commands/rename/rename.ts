@@ -1,6 +1,6 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
-import { User } from "../../mongo";
-import { expireReply, perm } from "../../lib";
+import { User, Game } from "../../mongo";
+import { expireReply, perm, displayGame } from "../../lib";
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -34,6 +34,22 @@ module.exports = {
     }
 
     await User.updateOne({ discordId: user?.id }, { name: name });
+
+    // refresh the game lobby if game is in lobby state
+    const game = await Game.findOne({
+      $or: [{ state: "lobby" }, {state: "draft"}, {state: "ingame"}]
+    });
+    if (game) {
+      game.players.forEach((player: any) => {
+        if (player.discordId == user?.id) {
+          player.name = name;
+        }
+      });
+      await Game.findOneAndUpdate({
+        $or: [{ state: "lobby" }, {state: "draft"}, {state: "ingame"}]
+      }, game, { new: true });
+      await displayGame(interaction, game);
+    }
     await interaction.deferReply({ ephemeral: true})
     await interaction.deleteReply();
   },
