@@ -28,8 +28,12 @@ export default async (interaction: any) => {
     expireReply(interaction);
     return;
   } else if (game.host === interaction.user.id) {
-    await interaction.reply({ content: "You are the host. You cannot leave the game.", ephemeral: true });
+    // delete game if host leaves
+    await Game.deleteOne({ messageId: interaction.message.id });
+    await interaction.reply({ content: "Game deleted.", ephemeral: true });
     expireReply(interaction);
+    await interaction.client.channels.cache.get(process.env.GAME_CHANNEL_ID).messages.fetch(interaction.message.id)
+      .then((message: any) => message.delete());
     return;
   }
 

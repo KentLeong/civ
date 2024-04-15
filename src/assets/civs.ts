@@ -2455,7 +2455,7 @@ export const Civs:Array<Civilization> = [
     avoid: []
   },
   {
-    name: "United Arab Emirates",
+    name: "UAE",
     leader: "Sheikh Zayed",
     ability: {
       name: "Yallah Habibi",
