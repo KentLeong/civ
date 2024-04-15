@@ -29,17 +29,12 @@ export default async (interaction:any, game: Game) => {
   description += bans.join(", ")+"```";
 
   game.players.forEach((player, i) => {
-    if (player.civ == "") {
-      description += "```bash\n"+(i+1)+". "+player.name+"\n#  ";
-    } else if (!player.ready) {
-      description += "```bash\n"+(i+1)+". "+player.name+" - "+player.civ+"\n#  ";
-    } else {
+    if (player.ready) {
       description += "```bash\n"+(i+1)+". "+player.name+" - "+player.civ+" ✅\n#  ";
+    } else {
+      description += "```bash\n"+(i+1)+". "+player.name+"\n#  ";
     }
-    player.pool.forEach((civ: string, e: number) => {
-      description += civ+", ";
-    });
-    description += "```";
+    description += player.pool.join(", ")+"```";
   });
   description += "\nYou can trade with other players with `/trade @player`.";
   embed.setDescription(description);
