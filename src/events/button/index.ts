@@ -3,12 +3,20 @@ import joinLobby from "./joinLobby";
 import leaveLobby from "./leaveLobby";
 import draftLobby from "./draftLobby";
 import revertLobby from "./revertLobby";
+import backInfo from "./backInfo";
+import nextInfo from "./nextInfo";
+import selectCiv from "./selectCiv";
+import randomCiv from "./randomCiv";
 
 const buttons:Record<string, any> = {
   "joinLobby": joinLobby,
   "leaveLobby": leaveLobby,
   "draftLobby": draftLobby,
   "revertLobby": revertLobby,
+  "backInfo": backInfo,
+  "nextInfo": nextInfo,
+  "selectCiv": selectCiv,
+  "randomCiv": randomCiv,
 }
 
 export default (interaction: any) => {
