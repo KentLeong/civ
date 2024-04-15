@@ -1970,9 +1970,7 @@ export const Civs:Array<Civilization> = [
         type: "Building",
         name: "Ducal Stable",
         replaces: "Stable",
-        description: `
-        In addition to the typical perks, provides +1 Gold from each Horse, Sheep, Cattle and Maize resource in the City. +15 XP for Mounted Units trained in the City. Requires no Gold maintenance.
-        `
+        description: `In addition to the typical perks, provides +1 Gold from each Horse, Sheep, Cattle and Maize resource in the City. +15 XP for Mounted Units trained in the City. Requires no Gold maintenance.`
       },
       {
         type: "Unit",
@@ -2344,9 +2342,7 @@ export const Civs:Array<Civilization> = [
         type: "Building",
         name: "Reisläufer Post",
         replaces: "Armory",
-        description: `
-        Trained units receive the Mountaineer promotion (+10% Strength and +1 Movement at the start of turn when adjacent to Mountain tiles). Doesn't require Gold maintenance. Spawns a Reisläufer upon completion.
-        `
+        description: `Trained units receive the Mountaineer promotion (+10% Strength and +1 Movement at the start of turn when adjacent to Mountain tiles). Doesn't require Gold maintenance. Spawns a Reisläufer upon completion.`
       },
       {
         type: "Unit",

@@ -1,6 +1,6 @@
-import { User, Game } from "../../mongo";
-import { displayGame, expireReply } from "../../lib";
-import { ButtonInteraction } from "discord.js";
+import { User, Game, Civ } from "../../mongo";
+import { displayGame, expireReply, displayInfo } from "../../lib";
+import { ButtonBuilder, ButtonStyle, ActionRowBuilder } from "discord.js";
 import { Civs } from "../../assets/civs";
 import { Civilization } from "../../types";
 
@@ -73,7 +73,37 @@ export default async (interaction: any) => {
 
   // send each player their pool
   game.players.forEach(async (player) => {
-    interaction.client.channels.cache.get(process.env.GAME_CHANNEL_ID).send(`<@${player.discordId}>`);
+    const back = new ButtonBuilder()
+      .setCustomId("backInfo")
+      .setLabel("Back")
+      .setStyle(ButtonStyle.Secondary);
+
+    const next = new ButtonBuilder()
+      .setCustomId("nextInfo")
+      .setLabel("Next")
+      .setStyle(ButtonStyle.Secondary);
+
+    const select = new ButtonBuilder()
+      .setCustomId("selectCiv")
+      .setLabel("Select")
+      .setStyle(ButtonStyle.Success);
+
+    const random = new ButtonBuilder()
+      .setCustomId("randomCiv")
+      .setLabel("Random")
+      .setStyle(ButtonStyle.Primary);
+    const row: any = new ActionRowBuilder()
+      .addComponents(back, next, select, random);
+
+    const civ = await Civ.findOne({ name: player.pool[0] }) as Civilization;
+    const info = await displayInfo(civ);
+    interaction.client.channels.cache.get(process.env.GAME_CHANNEL_ID)
+      .send({ content: `<@${player.discordId}>\n`, embeds: [info.embed], files: [info.file], components: [row]})
+      .then(async (msg: any) => {
+        player.messageId = msg.id;
+        await Game.findOneAndUpdate({ messageId: interaction.message.id }, game, { new: true });
+      }
+    );
   });
 
   await interaction.deferReply({ ephemeral: true})
