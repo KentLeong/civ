@@ -66,7 +66,7 @@ export default async (interaction: ButtonInteraction) => {
     }
   });
 
-  await game.save();
+  await Game.findOneAndUpdate({ messageId: interaction.message.id }, game, { new: true })
   await displayGame(interaction, game);
 
   await interaction.deferReply({ ephemeral: true})
