@@ -38,9 +38,17 @@ export default async (interaction: any) => {
     messageId: interaction.message.id,
   }, game, { new: true });
 
-  // delete message
-  await interaction.client.channels.cache.get(process.env.GAME_CHANNEL_ID).messages.fetch(interaction.message.id)
+  // delete messages
+  const channel = await interaction.client.channels.cache.get(process.env.GAME_CHANNEL_ID)
+  await channel.messages.fetch(interaction.message.id)
     .then((message: any) => message.delete());
+  for (let i = 0; i < game.players.length; i++) {
+    if (game.players[i].messageId) {
+      await channel.messages.fetch(game.players[i].messageId)
+        .then((message: any) => message.delete());
+    }
+  }
+  
   await displayGame(interaction, game);
 
   await interaction.deferReply({ ephemeral: true})
