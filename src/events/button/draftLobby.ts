@@ -71,6 +71,12 @@ export default async (interaction: ButtonInteraction) => {
   await Game.findOneAndUpdate({ messageId: interaction.message.id }, game, { new: true })
   await displayGame(interaction, game);
 
+  // send each player their pool
+  game.players.forEach(async (player) => {
+    const user = await interaction.client.users.fetch(player.discordId);
+    await user.send(`Your pool: ${player.pool.join(", ")}`);
+  });
+
   await interaction.deferReply({ ephemeral: true})
   await interaction.deleteReply();
 }

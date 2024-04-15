@@ -30,14 +30,14 @@ export default async (interaction:any, game: Game) => {
 
   game.players.forEach((player, i) => {
     if (player.civ == "") {
-      description += "```bash\n"+(i+1)+". "+player.name+"\n# ";
+      description += "```bash\n"+(i+1)+". "+player.name+"\n#  ";
     } else if (!player.ready) {
-      description += "```bash\n"+(i+1)+". "+player.name+" - "+player.civ+"\n# ";
+      description += "```bash\n"+(i+1)+". "+player.name+" - "+player.civ+"\n#  ";
     } else {
-      description += "```bash\n"+(i+1)+". "+player.name+" - "+player.civ+" ✅\n# ";
+      description += "```bash\n"+(i+1)+". "+player.name+" - "+player.civ+" ✅\n#  ";
     }
     player.pool.forEach((civ: string, e: number) => {
-      description += " "+civ+" ";
+      description += civ+", ";
     });
     description += "```";
   });
