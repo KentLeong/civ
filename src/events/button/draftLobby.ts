@@ -1,10 +1,8 @@
 import { User, Game, Civ } from "../../mongo";
 import { displayGame, expireReply, displayInfo } from "../../lib";
-import { ButtonBuilder, ButtonStyle, ActionRowBuilder } from "discord.js";
+import { ButtonBuilder, ButtonStyle, ActionRowBuilder, EmbedBuilder } from "discord.js";
 import { Civs } from "../../assets/civs";
 import { Civilization } from "../../types";
-
-
 
 export default async (interaction: any) => {
   const user = await User.findOne({ discordId: interaction.user.id });
@@ -75,12 +73,12 @@ export default async (interaction: any) => {
   game.players.forEach(async (player) => {
     const back = new ButtonBuilder()
       .setCustomId("backInfo")
-      .setLabel("Back")
+      .setLabel("←")
       .setStyle(ButtonStyle.Secondary);
 
     const next = new ButtonBuilder()
       .setCustomId("nextInfo")
-      .setLabel("Next")
+      .setLabel("→")
       .setStyle(ButtonStyle.Secondary);
 
     const select = new ButtonBuilder()
@@ -97,8 +95,24 @@ export default async (interaction: any) => {
 
     const civ = await Civ.findOne({ name: player.pool[0] }) as Civilization;
     const info = await displayInfo(civ);
+
+    // create new embed
+    const embed = new EmbedBuilder()
+    let description = "```";
+    player.pool.forEach((civ, i) => {
+      if (i == 0) {
+        description += `[ ${civ} ] -`
+      } else if (i == player.pool.length - 1) {
+        description += ` ${civ}`
+      } else {
+        description += ` ${civ} -`
+      }
+    });
+    description += "```";
+    description += "\n*WARNING: Pressing 'Select' or 'Random' will lock in your choice permanently*"
+    embed.setDescription(description);
     interaction.client.channels.cache.get(process.env.GAME_CHANNEL_ID)
-      .send({ content: `<@${player.discordId}>\n`, embeds: [info.embed], files: [info.file], components: [row]})
+      .send({ content: `<@${player.discordId}>\n`, embeds: [info.embed, embed], files: [info.file], components: [row]})
       .then(async (msg: any) => {
         player.messageId = msg.id;
         await Game.findOneAndUpdate({ messageId: interaction.message.id }, game, { new: true });

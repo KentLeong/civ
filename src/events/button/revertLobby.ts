@@ -1,8 +1,5 @@
-import { User, Game } from "../../mongo";
+import { Game } from "../../mongo";
 import { displayGame, expireReply, perm } from "../../lib";
-import { ButtonInteraction } from "discord.js";
-import { Civs } from "../../assets/civs";
-import { Civilization } from "../../types";
 
 export default async (interaction: any) => {
   if (!perm(interaction, "mod")) {
