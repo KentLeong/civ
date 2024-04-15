@@ -46,7 +46,9 @@ export default async (interaction: ButtonInteraction) => {
   const bans:string[] = [];
   game.players.forEach((player) => {
     player.bans.forEach((ban) => {
-      bans.push(ban);
+      if (!bans.includes(ban)) {
+        bans.push(ban);
+      }
     });
   });
 
