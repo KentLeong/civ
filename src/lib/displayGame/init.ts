@@ -1,7 +1,7 @@
-import { EmbedBuilder, AttachmentBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } from "discord.js";
+import { EmbedBuilder, AttachmentBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder, ButtonInteraction } from "discord.js";
 import { Game } from "../../mongo";
 
-export default async (interaction: any, game: Game) => {
+export default async (interaction: ButtonInteraction, game: Game) => {
   let description = "```fix\n"+" ".repeat(20)+"Civ 5 "+" ".repeat(20)+"```\n";
   const file = new AttachmentBuilder("src/assets/civ5.png");
   const embed = new EmbedBuilder()

@@ -47,7 +47,8 @@ export interface Player {
   civ: string;
   team: number;
   pool: string[];
-  trade: number[];
+  trade: string[];
+  ready: boolean;
 }
 
 export interface Civilization {

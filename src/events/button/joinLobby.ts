@@ -44,7 +44,8 @@ export default async (interaction: ButtonInteraction) => {
     civ: "",
     team: 0,
     pool: [],
-    trade: []
+    trade: [],
+    ready: false
   }
 
   game.players.push(newPlayer);

@@ -47,7 +47,8 @@ module.exports = {
           civ: "",
           team: 0,
           pool: [],
-          trade: []
+          trade: [],
+          ready: false
         }
       ],
       settings: {
