@@ -48,7 +48,8 @@ module.exports = {
           team: 0,
           pool: [],
           trade: [],
-          ready: false
+          ready: false,
+          selected: 0
         }
       ],
       settings: {

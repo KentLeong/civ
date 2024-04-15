@@ -17,7 +17,8 @@ export const GameSchema = new mongoose.Schema<Game>({
       pool: [String],
       trade: [String],
       ready: Boolean,
-      messageId: String
+      messageId: String,
+      selected: Number
     }
   }],
   settings: {

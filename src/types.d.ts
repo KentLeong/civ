@@ -50,6 +50,7 @@ export interface Player {
   trade: string[];
   ready: boolean;
   messageId: string;
+  selected: number;
 }
 
 export interface Civilization {

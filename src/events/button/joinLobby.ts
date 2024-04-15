@@ -46,7 +46,8 @@ export default async (interaction: ButtonInteraction) => {
     pool: [],
     trade: [],
     ready: false,
-    messageId: ""
+    messageId: "",
+    selected: 0
   }
 
   game.players.push(newPlayer);

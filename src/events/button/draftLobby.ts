@@ -101,7 +101,7 @@ export default async (interaction: any) => {
     let description = "```";
     player.pool.forEach((civ, i) => {
       if (i == 0) {
-        description += `[ ${civ} ] -`
+        description += `[${civ}] -`
       } else if (i == player.pool.length - 1) {
         description += ` ${civ}`
       } else {
