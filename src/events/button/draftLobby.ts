@@ -6,7 +6,7 @@ import { Civilization } from "../../types";
 
 
 
-export default async (interaction: ButtonInteraction) => {
+export default async (interaction: any) => {
   const user = await User.findOne({ discordId: interaction.user.id });
   if (!user) {
     await interaction.reply({ content: "You need to sign up first.", ephemeral: true });
@@ -73,8 +73,7 @@ export default async (interaction: ButtonInteraction) => {
 
   // send each player their pool
   game.players.forEach(async (player) => {
-    const user = await interaction.client.users.fetch(player.discordId);
-    await user.send(`Your pool: ${player.pool.join(", ")}`);
+    interaction.client.channels.cache.get(process.env.GAME_CHANNEL_ID).send(`<@${player.discordId}>`);
   });
 
   await interaction.deferReply({ ephemeral: true})

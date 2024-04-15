@@ -49,6 +49,7 @@ export interface Player {
   pool: string[];
   trade: string[];
   ready: boolean;
+  messageId: string;
 }
 
 export interface Civilization {
