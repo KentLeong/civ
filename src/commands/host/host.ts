@@ -51,7 +51,7 @@ module.exports = {
         }
       ],
       settings: {
-        bans: 3,
+        bans: 2,
         mode: "standard",
         ranked: true,
         modVer: "LekMod_v32.2",

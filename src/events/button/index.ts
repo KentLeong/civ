@@ -1,10 +1,12 @@
 import { expireReply } from "../../lib";
 import joinLobby from "./joinLobby";
 import leaveLobby from "./leaveLobby";
+import draftLobby from "./draftLobby";
 
 const buttons:Record<string, any> = {
   "joinLobby": joinLobby,
-  "leaveLobby": leaveLobby
+  "leaveLobby": leaveLobby,
+  "draftLobby": draftLobby,
 }
 
 export default (interaction: any) => {
