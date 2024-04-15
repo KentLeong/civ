@@ -15,6 +15,7 @@ export const GameSchema = new mongoose.Schema<Game>({
       civ: String,
       team: Number,
       pool: [String],
+      trade: [Number]
     }
   }],
   settings: {
@@ -24,7 +25,8 @@ export const GameSchema = new mongoose.Schema<Game>({
       mode: String,
       ranked: Boolean,
       modVer: String,
-      map: String
+      map: String,
+      pool: Number
     }
   }
 });

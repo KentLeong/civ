@@ -40,11 +40,11 @@ export default async (interaction: ButtonInteraction) => {
   const newPlayer = {
     discordId: interaction.user.id,
     name: user.name,
-    role: "player",
     bans: user.bans,
     civ: "",
-    team: playerCount +1,
-    pool: []
+    team: 0,
+    pool: [],
+    trade: []
   }
 
   game.players.push(newPlayer);

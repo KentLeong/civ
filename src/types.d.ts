@@ -37,6 +37,7 @@ export interface GameSettings {
   ranked: boolean;
   modVer: string;
   map: string;
+  pool: number;
 }
 
 export interface Player {
@@ -46,6 +47,7 @@ export interface Player {
   civ: string;
   team: number;
   pool: string[];
+  trade: number[];
 }
 
 export interface Civilization {

@@ -43,15 +43,16 @@ module.exports = {
         {
           discordId: interaction.user.id,
           name: user.name,
-          role: "host",
           bans: user.bans,
           civ: "",
-          team: 1,
-          pool: []
+          team: 0,
+          pool: [],
+          trade: []
         }
       ],
       settings: {
         bans: 2,
+        pool: 4,
         mode: "standard",
         ranked: true,
         modVer: "LekMod_v32.2",
