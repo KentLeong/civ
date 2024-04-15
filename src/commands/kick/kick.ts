@@ -29,7 +29,7 @@ module.exports = {
     }
 
     const game = await Game.findOne({
-      state: "lobby"
+      $or: [{ state: "lobby" }, {state: "draft"}]
     });
     if (!game) {
       await interaction.reply({ content: "No lobby found.", ephemeral: true });
