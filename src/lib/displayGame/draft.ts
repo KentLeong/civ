@@ -16,13 +16,9 @@ export default async (interaction:any, game: Game) => {
     .setCustomId("redraftLobby")
     .setLabel("Redraft")
     .setStyle(ButtonStyle.Danger);
-  const ready = new ButtonBuilder()
-    .setCustomId("readyLobby")
-    .setLabel("Ready")
-    .setStyle(ButtonStyle.Success);
 
   const row: any = new ActionRowBuilder()
-    .addComponents(revert, redraft, ready);
+    .addComponents(revert, redraft);
 
   // lists the banned civs
   const bans:string[] = []
