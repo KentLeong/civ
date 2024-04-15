@@ -22,6 +22,10 @@ module.exports = {
     .addStringOption(option =>
       option.setName("civban2")
         .setDescription("The civ to ban.")
+        .setAutocomplete(true))
+    .addStringOption(option =>
+      option.setName("civban3")
+        .setDescription("The civ to ban.")
         .setAutocomplete(true)),
   async autocomplete(interaction: AutocompleteInteraction) {
     const focusedValue = interaction.options.getFocused()?.toLocaleLowerCase();
@@ -47,28 +51,14 @@ module.exports = {
     }
     const civban1 = interaction.options.getString("civban1") || "";
     const civban2 = interaction.options.getString("civban2") || "";
+    const civban3 = interaction.options.getString("civban3") || "";
 
-    if (civban1 == "None") {
-      user.bans = [];
-    } else {
-      const civban1exists = civs.find(civ => civ == civban1);
-      if (!civban1exists) {
-        await interaction.reply({ content: "Civ not found.", ephemeral: true });
-        expireReply(interaction);
-        return;
-      }
-      if (civban2 !== "" && civban2 !== "None") {
-        const civban2exists = civs.find(civ => civ == civban2);
-        if (!civban2exists) {
-          await interaction.reply({ content: "Civ not found.", ephemeral: true });
-          expireReply(interaction);
-          return;
-        }
-        user.bans = [civban1, civban2];
-      } else {
-        user.bans = [civban1];
-      }
-    }
+    user.bans = [civban1, civban2, civban3];
+
+    // remove empty strings and None and Duplicate bans
+    user.bans = user.bans.filter((ban, index, self) =>
+      ban !== "" && ban !== "None" && index === self.indexOf(ban)
+    );
 
     await user.save();
 
