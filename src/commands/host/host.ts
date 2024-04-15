@@ -51,7 +51,7 @@ module.exports = {
         }
       ],
       settings: {
-        bans: 2,
+        bans: 3,
         pool: 4,
         mode: "standard",
         ranked: true,
