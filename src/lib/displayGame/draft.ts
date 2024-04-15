@@ -32,8 +32,8 @@ export default async (interaction:any, game: Game) => {
     } else {
       description += "```bash\n"+(i+1)+". "+player.name+" - "+player.civ+" ✅\n# ";
     }
-    player.pool.forEach((civ: string) => {
-      description += (i+1)+". "+civ;
+    player.pool.forEach((civ: string, e: number) => {
+      description += (e+1)+". "+civ+" ";
     });
     description += "```";
   });
@@ -45,5 +45,5 @@ export default async (interaction:any, game: Game) => {
     expireReply(interaction);
     return;
   }
-  await message.edit({ embeds: [embed], files: [file]});
+  await message.edit({ embeds: [embed], components: [row], files: [file]});
 }
