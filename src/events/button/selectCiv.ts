@@ -39,6 +39,7 @@ export default async (interaction: any) => {
   // sets player's civ
   player.civ = player.pool[player.selected];
   player.ready = true;
+  player.messageId = "";
 
   // save game
   await Game.findOneAndUpdate({ state: "draft" }, game, { new: true });
