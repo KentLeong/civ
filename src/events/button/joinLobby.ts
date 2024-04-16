@@ -44,6 +44,7 @@ export default async (interaction: ButtonInteraction) => {
     civ: "",
     team: 0,
     pool: [],
+    alive: true,
     trade: [],
     ready: false,
     messageId: "",

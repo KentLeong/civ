@@ -16,20 +16,26 @@ export interface Game {
   id: string;
   messageId: string;
   host: string;
+  startedAt: Date;
   state: GameState;
   players: Player[];
   settings: GameSettings;
   lobbyEvents: LobbyEvent[];
-  gameEvents: string[];
+  gameEvents: GameEvent[];
 }
 
 export interface LobbyEvent {
   type: EventType;
-  players: LobbyEventPlayer[];
+  players: EventPlayer[];
   civ?: string;
 }
 
-export interface LobbyEventPlayer {
+export interface GameEvent {
+  type: string;
+  players: EventPlayer[];
+}
+
+export interface EventPlayer {
   discordId: string;
   name: string;
 }
@@ -59,6 +65,7 @@ export interface Player {
   name: string;
   discordId: string;
   bans: string[];
+  alive: boolean;
   civ: string;
   team: number;
   pool: string[];

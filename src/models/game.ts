@@ -6,6 +6,7 @@ export const GameSchema = new mongoose.Schema<Game>({
   messageId: String,
   host: {type: String, required: true},
   state: {type: String, required: true},
+  startedAt: Date,
   lobbyEvents: [{
     type: Object,
     value: {
@@ -20,7 +21,19 @@ export const GameSchema = new mongoose.Schema<Game>({
       civ: String
     }
   }],
-  gameEvents: [String],
+  gameEvents: [{
+    type: Object,
+    value: {
+      type: String,
+      players: [{
+        type: Object,
+        value: {
+          name: String,
+          discordId: String
+        }
+      }]
+    }
+  }],
   players: [{
     type: Object,
     value: {
@@ -28,6 +41,7 @@ export const GameSchema = new mongoose.Schema<Game>({
       discordId: {type: String, required: true},
       bans: [String],
       civ: String,
+      alive: Boolean,
       team: Number,
       pool: [String],
       trade: [String],
