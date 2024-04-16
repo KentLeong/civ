@@ -61,6 +61,10 @@ export default async (interaction:any, game: Game) => {
           GameDetailsField += `${event.turn}: ${event.players[0].name} 💥`
         } else if (event.victoryType == "diplomatic") {
           GameDetailsField += `${event.turn}: ${event.players[0].name} 🤝`
+        } else if (event.victoryType == "draw") {
+          event.players.forEach((player) => {
+            GameDetailsField += `${event.turn}: ${player.name} 🏳️`
+          });
         }
       }
       if (i !== game.gameEvents.length - 1) {

@@ -95,7 +95,7 @@ export default async (interaction:any, game: Game) => {
 
   } else {
     alivePlayers.forEach((player) => {
-      playerField += "```bash\n💨 "+player.name+" - "+player.civ+"\n#  ";
+      playerField += "```bash\n🏳️ "+player.name+" - "+player.civ+"\n#  ";
       playerField += player.pool.join(", ")+"```";
     });
     playerField += "\n";
