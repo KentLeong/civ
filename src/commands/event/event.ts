@@ -170,29 +170,60 @@ module.exports = {
       // push war event
       game.gameEvents.push({
         type: "war",
-        players: [u1.discordId, u2.discordId],
+        players: [{
+          name: u1.name,
+          discordId: u1.discordId
+        }, {
+          name: u2.name,
+          discordId: u2.discordId
+        }],
         turn: turn
       });
     } else if (interaction.options.getSubcommand() === "peace") {
       // push peace event
       game.gameEvents.push({
         type: "peace",
-        players: [u1.discordId, u2.discordId],
+        players: [{
+          name: u1.name,
+          discordId: u1.discordId
+        }, {
+          name: u2.name,
+          discordId: u2.discordId
+        }],
         turn: turn
       });
     } else if (interaction.options.getSubcommand() === "kill") {
       // push kill event
       game.gameEvents.push({
         type: "kill",
-        players: [u1.discordId, u2.discordId],
+        players: [{
+          name: u1.name,
+          discordId: u1.discordId
+        }, {
+          name: u2.name,
+          discordId: u2.discordId
+        }],
         turn: turn
+      });
+      game.players.forEach((player: any) => {
+        if (player.discordId === u2.discordId) {
+          player.alive = false;
+        }
       });
     } else if (interaction.options.getSubcommand() === "irr") {
       // push irr event
       game.gameEvents.push({
         type: "irr",
-        players: [u1.discordId],
+        players: [{
+          name: u1.name,
+          discordId: u1.discordId
+        }],
         turn: turn
+      });
+      game.players.forEach((player: any) => {
+        if (player.discordId === u1.discordId) {
+          player.alive = false;
+        }
       });
     }
 

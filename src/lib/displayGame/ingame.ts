@@ -36,8 +36,19 @@ export default async (interaction:any, game: Game) => {
   GameDetailsField += "\n**Events:**"
   if (game.gameEvents.length > 0) {
     GameDetailsField += "```bash\n";
-    game.gameEvents.forEach((event: GameEvent) => {
-      // do stuff
+    game.gameEvents.forEach((event: GameEvent, i) => {
+      if (event.type == "war") {
+        GameDetailsField += `${event.turn}: ${event.players[0].name} 🪖 ${event.players[1].name}`
+      } else if (event.type == "peace") {
+        GameDetailsField += `${event.turn}: ${event.players[0].name} 🕊️ ${event.players[1].name}`
+      } else if (event.type == "kill") {
+        GameDetailsField += `${event.turn}: ${event.players[0].name} 💀 ${event.players[1].name}`
+      } else if (event.type == "irr") {
+        GameDetailsField += `${event.turn}: ${event.players[0].name} 💀`
+      }
+      if (i !== game.gameEvents.length - 1) {
+        GameDetailsField += "\n";
+      }
     });
     GameDetailsField += "```";
   } else {
