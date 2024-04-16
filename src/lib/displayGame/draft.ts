@@ -1,6 +1,7 @@
 import { AttachmentBuilder, EmbedBuilder, ButtonStyle, ButtonBuilder, ActionRowBuilder } from "discord.js";
 import { Game } from "../../mongo";
 import { expireReply } from "../../lib";
+import { LobbyEvent } from "../../types";
 
 export default async (interaction:any, game: Game) => {
   let description = "```fix\n"+" ".repeat(14)+"Civ 5 - Drafting "+" ".repeat(14)+"```\n";
@@ -16,6 +17,21 @@ export default async (interaction:any, game: Game) => {
   const row: any = new ActionRowBuilder()
     .addComponents(revert);
 
+  // lists lobby events
+  if (game.lobbyEvents.length > 0) {
+    description += "```bash\n";
+    game.lobbyEvents.forEach((event: LobbyEvent) => {
+      if (event.type == "select") {
+        description += "\n# "+event.players[0].name+" selected "+event.civ;
+      } else if (event.type == "random") {
+        description += "\n# "+event.players[0].name+" randomed "+event.civ;
+      } else if (event.type == "trade") {
+        description += "\n# "+event.players[0].name+" traded with "+event.players[1].name;
+      }
+    });
+    description += "```";
+  }
+
   // lists the banned civs
   const bans:string[] = []
   description += "```bash\n#  Banned: ";
@@ -28,6 +44,7 @@ export default async (interaction:any, game: Game) => {
   bans.filter((value, index) => bans.indexOf(value) === index);
   description += bans.join(", ")+"```";
 
+  // lists the players and their pools
   game.players.forEach((player, i) => {
     if (player.ready) {
       description += "```bash\n"+(i+1)+". "+player.name+" - "+player.civ+" ✅\n#  ";

@@ -10,7 +10,13 @@ export const GameSchema = new mongoose.Schema<Game>({
     type: Object,
     value: {
       type: String,
-      players: [String],
+      players: [{
+        type: Object,
+        value: {
+          name: String,
+          discordId: String
+        }
+      }],
       civ: String
     }
   }],

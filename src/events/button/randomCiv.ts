@@ -62,7 +62,10 @@ export default async (interaction: any) => {
   // push random event
   game.lobbyEvents.push({
     type: "random",
-    players: [player.discordId],
+    players: [{
+      discordId: player.discordId,
+      name: player.name,
+    }],
     civ: player.civ
   });
 

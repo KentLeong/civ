@@ -25,8 +25,13 @@ export interface Game {
 
 export interface LobbyEvent {
   type: EventType;
-  players: string[];
+  players: LobbyEventPlayer[];
   civ?: string;
+}
+
+export interface LobbyEventPlayer {
+  discordId: string;
+  name: string;
 }
 
 type EventType = "select" | "random" | "trade";

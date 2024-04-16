@@ -44,7 +44,10 @@ export default async (interaction: any) => {
   // push select event
   game.lobbyEvents.push({
     type: "select",
-    players: [player.discordId],
+    players: [{
+      discordId: player.discordId,
+      name: player.name,
+    }],
     civ: player.civ
   });
 

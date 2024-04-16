@@ -30,6 +30,8 @@ export default async (interaction: any) => {
     player.trade = [];
     player.ready = false;
   });
+  game.lobbyEvents = [];
+  game.gameEvents = [];
 
   await Game.findOneAndUpdate({
     messageId: interaction.message.id,
