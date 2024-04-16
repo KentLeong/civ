@@ -41,6 +41,13 @@ export default async (interaction: any) => {
   player.ready = true;
   player.messageId = "";
 
+  // push select event
+  game.lobbyEvents.push({
+    type: "select",
+    players: [player.discordId],
+    civ: player.civ
+  });
+
   // save game
   await Game.findOneAndUpdate({ state: "draft" }, game, { new: true });
 

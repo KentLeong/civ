@@ -19,7 +19,17 @@ export interface Game {
   state: GameState;
   players: Player[];
   settings: GameSettings;
+  lobbyEvents: LobbyEvent[];
+  gameEvents: string[];
 }
+
+export interface LobbyEvent {
+  type: EventType;
+  players: string[];
+  civ?: string;
+}
+
+type EventType = "select" | "random" | "trade";
 
 type GameState = "init" | "lobby" | "started" | "draft" | "ingame" | "done";
 

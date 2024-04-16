@@ -6,6 +6,15 @@ export const GameSchema = new mongoose.Schema<Game>({
   messageId: String,
   host: {type: String, required: true},
   state: {type: String, required: true},
+  lobbyEvents: [{
+    type: Object,
+    value: {
+      type: String,
+      players: [String],
+      civ: String
+    }
+  }],
+  gameEvents: [String],
   players: [{
     type: Object,
     value: {
