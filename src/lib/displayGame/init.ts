@@ -2,7 +2,15 @@ import { EmbedBuilder, AttachmentBuilder, ButtonBuilder, ButtonStyle, ActionRowB
 import { Game } from "../../mongo";
 
 export default async (interaction: ButtonInteraction, game: Game) => {
-  let description = "```fix\n"+" ".repeat(16)+"Civ 5 - Lobby "+" ".repeat(16)+"```\n";
+  let s = "Game "+game.id+" - Lobby";
+  let t = 46 - s.length;
+  let l = Math.floor(t/2);
+  if (t % 2 == 0) {
+    s = " ".repeat(l) + s + " ".repeat(l);
+  } else {
+    s = " ".repeat(l) + s + " ".repeat(l+1);
+  }
+  let description = "```fix\n"+s+"```\n";
   const file = new AttachmentBuilder("src/assets/civ5.png");
   const embed = new EmbedBuilder()
     .setThumbnail("attachment://civ5.png")

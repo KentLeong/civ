@@ -4,7 +4,15 @@ import { expireReply } from "../../lib";
 import { LobbyEvent, GameEvent, Player } from "../../types";
 
 export default async (interaction:any, game: Game) => {
-  let description = "```fix\n"+" ".repeat(20)+"Civ 5 - In Game "+" ".repeat(20)+"```\n";
+  let s = "Game "+game.id+" - In Game";
+  let t = 55 - s.length;
+  let l = Math.floor(t/2);
+  if (t % 2 == 0) {
+    s = " ".repeat(l) + s + " ".repeat(l);
+  } else {
+    s = " ".repeat(l) + s + " ".repeat(l+1);
+  }
+  let description = "```fix\n"+s+"```\n";  
   let playerField = "";
   let GameDetailsField = "";
   const embed = new EmbedBuilder()
