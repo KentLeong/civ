@@ -44,7 +44,7 @@ export default async (interaction:any, game: Game) => {
   GameDetailsField += "```";
   
   // lists Game events
-  GameDetailsField += "\n**Game Events:**"
+  GameDetailsField += "\n**Events:**"
   if (game.gameEvents.length > 0) {
     GameDetailsField += "```bash\n";
     game.gameEvents.forEach((event: GameEvent) => {
@@ -84,7 +84,7 @@ export default async (interaction:any, game: Game) => {
 
   embed.setDescription(description);
   embed.addFields([
-    { name: "Game Details:", value: GameDetailsField, inline: true},
+    { name: "Details:", value: GameDetailsField, inline: true},
     { name: "Players:", value: playerField, inline: true}
   ]);
   const message = await interaction.client.channels.cache.get(process.env.GAME_CHANNEL_ID || "")?.messages.fetch(game.messageId);
