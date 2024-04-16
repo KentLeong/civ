@@ -35,6 +35,12 @@ export default async (interaction: any) => {
   game.state = "done";
   game.endedAt = new Date();
 
+  if (game.gameEvents.length === 0) {
+    await interaction.reply({ content: "No game events found.", ephemeral: true });
+    expireReply(interaction);
+    return false;
+  }
+
   // check if there is a victor
   const event = game.gameEvents[game.gameEvents.length - 1];
   if (event.type !== "victory") {
