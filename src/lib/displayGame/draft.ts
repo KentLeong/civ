@@ -22,11 +22,11 @@ export default async (interaction:any, game: Game) => {
     description += "```bash\n";
     game.lobbyEvents.forEach((event: LobbyEvent) => {
       if (event.type == "select") {
-        description += "\n# "+event.players[0].name+" selected "+event.civ;
+        description += "\n#  "+event.players[0].name+" selected "+event.civ;
       } else if (event.type == "random") {
-        description += "\n# "+event.players[0].name+" randomed "+event.civ;
+        description += "\n#  "+event.players[0].name+" randomed "+event.civ;
       } else if (event.type == "trade") {
-        description += "\n# "+event.players[0].name+" traded with "+event.players[1].name;
+        description += "\n#  "+event.players[0].name+" traded with "+event.players[1].name;
       }
     });
     description += "```";
