@@ -1,6 +1,7 @@
 import { EmbedBuilder, ButtonStyle, ButtonBuilder, ActionRowBuilder } from "discord.js";
 import { Game } from "../../mongo";
 import { GameEvent, Player } from "../../types";
+import ingame from "./"
 
 export default async (interaction:any, game: Game) => {
   let s = "Game "+game.id+" - In Game";
@@ -31,6 +32,11 @@ export default async (interaction:any, game: Game) => {
     GameDetailsField += "Time: Just started";
     game.startedAt = new Date();
     await Game.findOneAndUpdate({ state: "ingame" }, game, { new: true });
+    setInterval(async () => {
+      let gameState = await Game.findOne({ state: "ingame" });
+      if (!gameState) return;
+      await ingame(interaction, gameState);
+    }, 60000);
   } else {
     let time = new Date().getTime() - game.startedAt.getTime();
     let hours = Math.floor(time / 3600000);
