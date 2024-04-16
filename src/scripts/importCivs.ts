@@ -11,12 +11,13 @@ try {
     try {
       const existingCiv = await Civ.findOne({ name: civ.name });
       if (existingCiv) {
-        await Civ.deleteOne({
-          name: civ.name
-        });
+        // update the civ if found
+        await Civ.updateOne({ name: civ.name }, civ);
+      } else {
+        // create the civ if not found
+        const newCiv = await Civ.create(civ);
+        await newCiv.save();
       }
-      const newCiv = await Civ.create(civ);
-      await newCiv.save();
     } catch (error) {
       console.error(error);
     }
