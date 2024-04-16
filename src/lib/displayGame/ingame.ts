@@ -29,6 +29,7 @@ export default async (interaction:any, game: Game) => {
   }
   let playerField = "";
   let GameDetailsField = "";
+  let NotesField = "";
   const embed = new EmbedBuilder()
 
   const done = new ButtonBuilder()
@@ -100,15 +101,14 @@ export default async (interaction:any, game: Game) => {
   }
 
   // lists notes
-  GameDetailsField += "\n**Notes:**"
   if (game.notes.length > 0) {
-    GameDetailsField += "```";
+    NotesField += "```";
     game.notes.forEach((note: string, i) => {
-      GameDetailsField += (i+1)+". "+note+"\n";
+      NotesField += (i+1)+". "+note+"\n";
     });
-    GameDetailsField += "```";
+    NotesField += "```";
   } else {
-    GameDetailsField += "```bash\nNone```";
+    NotesField += "```None```";
   }
 
   // moves players to dead or alive list
@@ -141,7 +141,8 @@ export default async (interaction:any, game: Game) => {
   embed.setDescription(description);
   embed.addFields([
     { name: "Details:", value: GameDetailsField, inline: true},
-    { name: "Players:", value: playerField, inline: true}
+    { name: "Players:", value: playerField, inline: true},
+    { name: "Notes:", value: NotesField}
   ]);
   const message = await interaction.client.channels.cache.get(process.env.GAME_CHANNEL_ID || "")?.messages.fetch(game.messageId);
   await message.edit({ embeds: [embed], components: [row], files: []});

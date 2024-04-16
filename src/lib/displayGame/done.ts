@@ -29,6 +29,7 @@ export default async (interaction:any, game: Game) => {
     }
   let playerField = "";
   let GameDetailsField = "";
+  let NotesField = "";
   const embed = new EmbedBuilder()
   const victoryType = game.gameEvents[game.gameEvents.length - 1].victoryType as string;
   if (victoryType !== "draw") {
@@ -86,17 +87,18 @@ export default async (interaction:any, game: Game) => {
   }
 
   // lists notes
-  GameDetailsField += "\n**Notes:**"
   if (game.notes.length > 0) {
-    GameDetailsField += "```";
+    NotesField += "```";
     game.notes.forEach((note: string, i) => {
-      GameDetailsField += (i+1)+". "+note+"\n";
+      NotesField += (i+1)+". "+note+"\n";
     });
-    GameDetailsField += "```";
+    NotesField += "```";
   } else {
-    GameDetailsField += "```bash\nNone```";
+    NotesField += "```None```";
   }
 
+
+  
   // moves players to dead or alive list
   let alivePlayers: Player[] = [];
   let deadPlayers: Player[] = [];
@@ -142,10 +144,11 @@ export default async (interaction:any, game: Game) => {
   embed.setDescription(description);
   embed.addFields([
     { name: "Details:", value: GameDetailsField, inline: true},
-    { name: "Players:", value: playerField, inline: true}
+    { name: "Players:", value: playerField, inline: true},
+    { name: "Notes:", value: NotesField }
   ]);
 
-  embed.setFooter({ text: "Started at: "+formatDate(game.startedAt)});
+  embed.setFooter({ text: "Game started at: "+formatDate(game.startedAt)});
   await channel.send({ embeds: [embed] }).then(async (msg: any) => {
     game.messageId = msg.id;
     await Game.findOneAndUpdate({ messageId: interaction.message.id }, game, { new: true });
