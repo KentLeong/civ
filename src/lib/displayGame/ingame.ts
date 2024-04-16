@@ -50,9 +50,19 @@ export default async (interaction:any, game: Game) => {
       } else if (event.type == "peace") {
         GameDetailsField += `${event.turn}: ${event.players[0].name} 🕊️ ${event.players[1].name}`
       } else if (event.type == "kill") {
-        GameDetailsField += `${event.turn}: ${event.players[0].name} 💀 ${event.players[1].name}`
+        GameDetailsField += `${event.turn}: ${event.players[0].name} 🔪 ${event.players[1].name}`
       } else if (event.type == "irr") {
         GameDetailsField += `${event.turn}: ${event.players[0].name} 💀`
+      } else if (event.type == "victory") {
+        if (event.victoryType == "science") {
+          GameDetailsField += `${event.turn}: ${event.players[0].name} 🚀`
+        } else if (event.victoryType == "culture") {
+          GameDetailsField += `${event.turn}: ${event.players[0].name} 🎭`
+        } else if (event.victoryType == "domination") {
+          GameDetailsField += `${event.turn}: ${event.players[0].name} 💥`
+        } else if (event.victoryType == "diplomatic") {
+          GameDetailsField += `${event.turn}: ${event.players[0].name} 🤝`
+        }
       }
       if (i !== game.gameEvents.length - 1) {
         GameDetailsField += "\n";
