@@ -25,6 +25,7 @@ export const GameSchema = new mongoose.Schema<Game>({
     type: Object,
     value: {
       type: String,
+      turn: Number,
       players: [{
         type: Object,
         value: {

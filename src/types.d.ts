@@ -25,13 +25,14 @@ export interface Game {
 }
 
 export interface LobbyEvent {
-  type: EventType;
+  type: LobbyEventType;
   players: EventPlayer[];
   civ?: string;
 }
 
 export interface GameEvent {
   type: string;
+  turn: number;
   players: EventPlayer[];
 }
 
@@ -40,7 +41,9 @@ export interface EventPlayer {
   name: string;
 }
 
-type EventType = "select" | "random" | "trade";
+type GameEventType = "war" | "peace" | "killed" | "irr";
+
+type LobbyEventType = "select" | "random" | "trade";
 
 type GameState = "init" | "lobby" | "started" | "draft" | "ingame" | "done";
 
