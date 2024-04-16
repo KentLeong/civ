@@ -2,7 +2,7 @@ import { AttachmentBuilder, EmbedBuilder, SlashCommandBuilder, ChatInputCommandI
 import { Civ } from "../../mongo";
 import { Civs } from "../../assets/civs";
 import { Civilization } from "../../types";
-import { expireReply, displayInfo } from "../../lib";
+import { expireReply, displayInfo, validateChannel } from "../../lib";
 
 const civs:string[] = []
 Civs.forEach((civ:Civilization) => {
@@ -33,6 +33,11 @@ module.exports = {
     await interaction.respond(suggestions);
   },
   async execute(interaction: ChatInputCommandInteraction) {
+    if (!validateChannel(interaction, "info")) {
+      await interaction.reply({ content: "Invalid channel.", ephemeral: true });
+      expireReply(interaction);
+      return;
+    }
     const opt = interaction.options.getString("civ") || "";
 
     const civ = await Civ.findOne({

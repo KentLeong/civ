@@ -1,5 +1,5 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
-import { displayGame, expireReply, perm } from "../../lib";
+import { displayGame, expireReply, perm, validateChannel } from "../../lib";
 import { User, Game } from "../../mongo";
 
 module.exports = {
@@ -11,7 +11,11 @@ module.exports = {
         .setDescription("The user to kick.")
         .setRequired(true)),
   async execute(interaction: ChatInputCommandInteraction) {
-    await interaction.deferReply({ ephemeral: true });
+    if (!validateChannel(interaction, "game")) {
+      await interaction.reply({ content: "Invalid channel.", ephemeral: true });
+      expireReply(interaction);
+      return;
+    }
     if (perm(interaction, "mod") == false) {
       await interaction.reply({ content: "You do not have permission to use this command.", ephemeral: true });
       expireReply(interaction);
@@ -49,6 +53,7 @@ module.exports = {
     await game.save();
 
     await displayGame(interaction, game);
+    await interaction.deferReply({ ephemeral: true });
     await interaction.deleteReply();
   },
 }

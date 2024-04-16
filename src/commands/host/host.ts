@@ -1,12 +1,17 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
 import { Game, User } from "../../mongo"
-import { perm, expireReply, displayGame } from "../../lib";
+import { perm, expireReply, displayGame, validateChannel } from "../../lib";
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("host")
     .setDescription("Creates a game lobby"),
   async execute(interaction: ChatInputCommandInteraction) {
+    if (!validateChannel(interaction, "game")) {
+      await interaction.reply({ content: "Invalid channel.", ephemeral: true });
+      expireReply(interaction);
+      return;
+    }
     if (perm(interaction, "mod") == false) {
       await interaction.reply("You do not have permission to use this command.");
       expireReply(interaction);

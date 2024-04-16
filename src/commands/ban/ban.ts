@@ -2,7 +2,7 @@ import { SlashCommandBuilder, ChatInputCommandInteraction, AutocompleteInteracti
 import { Civs } from "../../assets/civs";
 import { User, Game } from "../../mongo";
 import { Civilization } from "../../types";
-import { expireReply, displayGame } from "../../lib";
+import { expireReply, displayGame, validateChannel } from "../../lib";
 
 const civs:string[] = []
 Civs.forEach((civ:Civilization) => {
@@ -41,6 +41,11 @@ module.exports = {
     await interaction.respond(suggestions);
   },
   async execute(interaction: ChatInputCommandInteraction) {
+    if (!validateChannel(interaction, "game")) {
+      await interaction.reply({ content: "Invalid channel.", ephemeral: true });
+      expireReply(interaction);
+      return;
+    }
     const user = await User.findOne({
       discordId: interaction.user.id
     });

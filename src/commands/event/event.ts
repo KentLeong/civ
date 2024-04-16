@@ -1,5 +1,5 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
-import { displayGame, expireReply } from "../../lib";
+import { displayGame, expireReply, validateChannel } from "../../lib";
 import { User, Game } from "../../mongo";
 
 module.exports = {
@@ -93,6 +93,11 @@ module.exports = {
         )
     ),
   async execute(interaction: ChatInputCommandInteraction) {
+    if (!validateChannel(interaction, "game")) {
+      await interaction.reply({ content: "Invalid channel.", ephemeral: true });
+      expireReply(interaction);
+      return;
+    }
     const user: any = interaction.options.getUser("user");
     const user2: any = interaction.options.getUser("user2");
     const turn: any = interaction.options.getNumber("turn");

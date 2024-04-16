@@ -1,7 +1,7 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction, EmbedBuilder } from "discord.js";
-import { displayGame, expireReply, displayInfo } from "../../lib";
+import { displayGame, expireReply, displayInfo, validateChannel } from "../../lib";
 import { User, Game, Civ } from "../../mongo";
-import { Civilization, Player } from "../../types";
+import { Civilization } from "../../types";
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -9,6 +9,11 @@ module.exports = {
     .setDescription("Initiate a trade with another player")
     .addUserOption(option => option.setName("player").setDescription("The player to trade with").setRequired(true)),
   async execute(interaction: ChatInputCommandInteraction) {
+    if (!validateChannel(interaction, "game")) {
+      await interaction.reply({ content: "Invalid channel.", ephemeral: true });
+      expireReply(interaction);
+      return;
+    }
     const player: any = interaction.options.getUser("player");
     const user = await User.findOne({
       discordId: interaction.user.id
