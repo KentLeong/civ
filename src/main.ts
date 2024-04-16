@@ -4,6 +4,8 @@ import { CommandClient } from "./models/client";
 import fs from "fs";
 import path from "path";
 
+import { Events } from "discord.js";
+
 console.log("Starting bot...");
 
 const client = new CommandClient();

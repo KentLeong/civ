@@ -7,7 +7,7 @@ export class CommandClient extends Client {
 
   constructor() {
     super({
-      intents: GatewayIntentBits.Guilds,
+      intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
     });
     this.commands = new Collection();
   }
