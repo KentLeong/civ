@@ -52,6 +52,38 @@ module.exports = {
       expireReply(interaction);
       return;
     }
+
+    // check if player already selected a civ
+    let selected = false;
+    game.players.forEach((p) => {
+      if (p.discordId === player.id) {
+        if (p.selected !== 0) {
+          selected = true;
+        }
+      }
+    });
+
+    if (selected) {
+      await interaction.reply({ content: "Player already selected a civ.", ephemeral: true });
+      expireReply(interaction);
+      return;
+    }
+
+    // check if user already selected a civ
+    let selectedUser = false;
+    game.players.forEach((p) => {
+      if (p.discordId === interaction.user.id) {
+        if (p.selected !== 0) {
+          selectedUser = true;
+        }
+      }
+    });
+
+    if (selectedUser) {
+      await interaction.reply({ content: "You already selected a civ.", ephemeral: true });
+      expireReply(interaction);
+      return;
+    }
     
     // add player to user trade list and check if other player has user in trade list
     let trade = false;
