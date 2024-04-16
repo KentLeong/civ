@@ -81,7 +81,7 @@ export default async (interaction: any) => {
   const infoChannel = await interaction.client.channels.cache.get(process.env.INFO_CHANNEL_ID)
   const randomCiv = await Civ.findOne({ name: player.civ }) as Civilization;
   const info = await displayInfo(randomCiv);
-  await infoChannel.send({ content: `<@${player.discordId}>\n`, embeds: [info.embed], files: [info.file]});
+  await infoChannel.send({ content: `<@${player.discordId}> ${player.name} Randomed: ${randomCiv.name}\n`, embeds: [info.embed], files: [info.file]});
   // check if all players are ready
   let allReady = true;
   for (let i = 0; i < game.players.length; i++) {

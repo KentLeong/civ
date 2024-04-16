@@ -59,6 +59,12 @@ export default async (interaction: any) => {
   await channel.messages.fetch(interaction.message.id)
     .then((message: any) => message.delete());
 
+  // send message to player of selected civ in info channel
+  const infoChannel = await interaction.client.channels.cache.get(process.env.INFO_CHANNEL_ID)
+  const selectedCiv = await Civ.findOne({ name: player.civ }) as Civilization;
+  const info = await displayInfo(selectedCiv);
+  await infoChannel.send({ content: `<@${player.discordId}> ${player.name} Selected: ${selectedCiv.name}\n`,embeds: [info.embed], files: [info.file]});
+
   // check if all players are ready
   let allReady = true;
   for (let i = 0; i < game.players.length; i++) {
