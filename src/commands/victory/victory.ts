@@ -78,6 +78,12 @@ module.exports = {
       subcommand
         .setName("draw")
         .setDescription("inputs draw event")
+        .addNumberOption(option =>
+          option
+            .setName("turn")
+            .setDescription("The turn of the event")
+            .setRequired(true)
+        )
     ),
   async execute(interaction: ChatInputCommandInteraction) {
     const subcommand = interaction.options.getSubcommand();
@@ -125,7 +131,8 @@ module.exports = {
         }
       });
       game.gameEvents.push({
-        type: "draw",
+        type: "victory",
+        victoryType: "draw",
         players: winners,
         turn: turn,
       });
