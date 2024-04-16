@@ -1,6 +1,5 @@
 import { EmbedBuilder, AttachmentBuilder } from "discord.js";
 import { Game } from "../../mongo";
-import expireReply from "../expireReply";
 
 export default async (interaction: any, game: Game) => {
   let s = "Game "+game.id+" - Lobby";
@@ -26,10 +25,5 @@ export default async (interaction: any, game: Game) => {
   description += "\nYou can have up to two bans using the `/ban` command."
   embed.setDescription(description);
   const message = await interaction.client.channels.cache.get(process.env.GAME_CHANNEL_ID || "")?.messages.fetch(game.messageId);
-  if (!message) {
-    await interaction.reply({ content: "Game not found.", ephemeral: true });
-    expireReply(interaction);
-    return;
-  }
   await message.edit({ embeds: [embed], files: [file]});
 }

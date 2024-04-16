@@ -64,10 +64,5 @@ export default async (interaction:any, game: Game) => {
   description += "\nYou can trade with other players with `/trade @player`.";
   embed.setDescription(description);
   const message = await interaction.client.channels.cache.get(process.env.GAME_CHANNEL_ID || "")?.messages.fetch(game.messageId);
-  if (!message) {
-    await interaction.reply({ content: "Game not found.", ephemeral: true });
-    expireReply(interaction);
-    return;
-  }
   await message.edit({ embeds: [embed], components: [row], files: [file]});
 }
