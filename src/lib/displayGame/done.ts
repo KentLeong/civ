@@ -1,7 +1,7 @@
 import { EmbedBuilder } from "discord.js";
 import { Game } from "../../mongo";
 import { expireReply, formatDate } from "../../lib";
-import { GameEvent, Player } from "../../types";
+import { GameEvent, Player, LobbyEvent } from "../../types";
 
 export default async (interaction:any, game: Game) => {
   let s = "Game "+game.id;
@@ -13,6 +13,20 @@ export default async (interaction:any, game: Game) => {
     s = " ".repeat(l) + s + " ".repeat(l+1);
   }
   let description = "```fix\n"+s+"```\n";
+    // lists lobby events
+    if (game.lobbyEvents.length > 0) {
+      description += "```bash\n";
+      game.lobbyEvents.forEach((event: LobbyEvent) => {
+        if (event.type == "select") {
+          description += "\n#  "+event.players[0].name+" selected "+event.civ;
+        } else if (event.type == "random") {
+          description += "\n#  "+event.players[0].name+" randomed "+event.civ;
+        } else if (event.type == "trade") {
+          description += "\n#  "+event.players[0].name+" traded with "+event.players[1].name;
+        }
+      });
+      description += "```";
+    }
   let playerField = "";
   let GameDetailsField = "";
   const embed = new EmbedBuilder()
