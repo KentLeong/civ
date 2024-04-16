@@ -62,7 +62,7 @@ module.exports = {
       game.notes.pop();
     }
 
-    await Game.findOneAndUpdate({ state: "ingame" }, { gameEvents: game.gameEvents, notes: game.notes });
+    await Game.findOneAndUpdate({ state: "ingame" }, game, { new: true });
 
     await interaction.reply({ content: "Undo successful.", ephemeral: true });
     expireReply(interaction);

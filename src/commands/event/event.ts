@@ -123,6 +123,12 @@ module.exports = {
     let u2: any = null;
     if (!isIrrCommand) {
       u2 = await User.findOne({ discordId: user2.id });
+
+      if (u1.discordId === u2.discordId) {
+        await interaction.reply({ content: "User 1 and User 2 cannot be the same.", ephemeral: true });
+        expireReply(interaction);
+        return;
+      }
     }
     //check if u1 is in game
     let u1InGame = false;
