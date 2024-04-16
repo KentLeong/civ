@@ -7,6 +7,7 @@ import backInfo from "./backInfo";
 import nextInfo from "./nextInfo";
 import selectCiv from "./selectCiv";
 import randomCiv from "./randomCiv";
+import doneGame from "./doneGame";
 
 const buttons:Record<string, any> = {
   "joinLobby": joinLobby,
@@ -17,6 +18,7 @@ const buttons:Record<string, any> = {
   "nextInfo": nextInfo,
   "selectCiv": selectCiv,
   "randomCiv": randomCiv,
+  "doneGame": doneGame
 }
 
 export default (interaction: any) => {

@@ -17,6 +17,7 @@ export interface Game {
   messageId: string;
   host: string;
   startedAt: Date;
+  endedAt: Date;
   state: GameState;
   players: Player[];
   settings: GameSettings;
