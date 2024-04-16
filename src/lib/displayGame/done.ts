@@ -1,7 +1,7 @@
-import { EmbedBuilder, ButtonStyle, ButtonBuilder, ActionRowBuilder } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 import { Game } from "../../mongo";
 import { expireReply } from "../../lib";
-import { LobbyEvent, GameEvent, Player } from "../../types";
+import { GameEvent, Player } from "../../types";
 
 export default async (interaction:any, game: Game) => {
   let s = "Game "+game.id;
@@ -16,7 +16,12 @@ export default async (interaction:any, game: Game) => {
   let playerField = "";
   let GameDetailsField = "";
   const embed = new EmbedBuilder()
-
+  const victoryType = game.gameEvents[game.gameEvents.length - 1].victoryType as string;
+  if (victoryType !== "draw") {
+    GameDetailsField += "```fix\n"+victoryType.charAt(0).toUpperCase() + victoryType.slice(1)+" Victory```";
+  } else {
+    GameDetailsField += "```fix\nDraw```";
+  }
   GameDetailsField += "```";
   GameDetailsField += "ModVer: "+game.settings.modVer+"\n";
   GameDetailsField += "Map: "+game.settings.map+"\n";
