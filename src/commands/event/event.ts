@@ -172,6 +172,15 @@ module.exports = {
       return;
     }
 
+    // check if turn is valid
+    if (game.gameEvents.length !== 0) {
+      if (turn < game.gameEvents[game.gameEvents.length - 1].turn) {
+        await interaction.reply({ content: "Invalid turn.", ephemeral: true });
+        expireReply(interaction);
+        return;
+      }
+    }
+
     if (interaction.options.getSubcommand() === "war") {
       // push war event
       game.gameEvents.push({

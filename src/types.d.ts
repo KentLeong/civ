@@ -34,6 +34,7 @@ export interface LobbyEvent {
 export interface GameEvent {
   type: string;
   turn: number;
+  victoryType?: string;
   players: EventPlayer[];
 }
 
@@ -42,7 +43,7 @@ export interface EventPlayer {
   name: string;
 }
 
-type GameEventType = "war" | "peace" | "killed" | "irr";
+type GameEventType = "war" | "peace" | "killed" | "irr" | "victory";
 
 type LobbyEventType = "select" | "random" | "trade";
 
