@@ -1,6 +1,6 @@
 import { EmbedBuilder } from "discord.js";
 import { Game } from "../../mongo";
-import { expireReply } from "../../lib";
+import { expireReply, formatDate } from "../../lib";
 import { GameEvent, Player } from "../../types";
 
 export default async (interaction:any, game: Game) => {
@@ -130,6 +130,8 @@ export default async (interaction:any, game: Game) => {
     { name: "Details:", value: GameDetailsField, inline: true},
     { name: "Players:", value: playerField, inline: true}
   ]);
+
+  embed.setFooter({ text: "Started at: "+formatDate(game.startedAt)});
   await channel.send({ embeds: [embed] }).then(async (msg: any) => {
     game.messageId = msg.id;
     await Game.findOneAndUpdate({ messageId: interaction.message.id }, game, { new: true });

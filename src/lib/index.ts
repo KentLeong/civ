@@ -4,6 +4,7 @@ import isPlayerInLobby from "./isPlayerInLobby";
 import expireReply from "./expireReply";
 import displayInfo from "./displayInfo";
 import validateChannel from "./validateChannel";
+import formatDate from "./formatDate";
 
 export { 
   perm, 
@@ -11,5 +12,6 @@ export {
   isPlayerInLobby,
   expireReply,
   displayInfo,
-  validateChannel
+  validateChannel,
+  formatDate
 };
