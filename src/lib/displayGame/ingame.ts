@@ -17,7 +17,7 @@ export default async (interaction:any, game: Game) => {
     .addComponents(done);
 
   // shows how long the game has been going on
-  GameDetailsField += "```bash\n";
+  GameDetailsField += "```";
   GameDetailsField += "ModVer: "+game.settings.modVer+"\n";
   GameDetailsField += "Map: "+game.settings.map+"\n";
   if (!game.startedAt) {
@@ -35,7 +35,7 @@ export default async (interaction:any, game: Game) => {
   // lists Game events
   GameDetailsField += "\n**Events:**"
   if (game.gameEvents.length > 0) {
-    GameDetailsField += "```bash\n";
+    GameDetailsField += "```";
     game.gameEvents.forEach((event: GameEvent, i) => {
       if (event.type == "war") {
         GameDetailsField += `${event.turn}: ${event.players[0].name} 🪖 ${event.players[1].name}`
@@ -58,7 +58,7 @@ export default async (interaction:any, game: Game) => {
   // lists notes
   GameDetailsField += "\n**Notes:**"
   if (game.notes.length > 0) {
-    GameDetailsField += "```bash\n";
+    GameDetailsField += "```";
     game.notes.forEach((note: string, i) => {
       GameDetailsField += (i+1)+". "+note+"\n";
     });
