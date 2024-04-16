@@ -18,6 +18,8 @@ export default async (interaction:any, game: Game) => {
 
   // shows how long the game has been going on
   GameDetailsField += "```bash\n";
+  GameDetailsField += "ModVer: "+game.settings.modVer+"\n";
+  GameDetailsField += "Map: "+game.settings.map+"\n";
   if (!game.startedAt) {
     GameDetailsField += "Time: Just started";
     game.startedAt = new Date();
@@ -39,7 +41,19 @@ export default async (interaction:any, game: Game) => {
     });
     GameDetailsField += "```";
   } else {
-    GameDetailsField += "```bash\n None```";
+    GameDetailsField += "```bash\nNone```";
+  }
+
+  // lists notes
+  GameDetailsField += "\n**Notes:**"
+  if (game.notes.length > 0) {
+    GameDetailsField += "```bash\n";
+    game.notes.forEach((note: string, i) => {
+      GameDetailsField += (i+1)+". "+note+"\n";
+    });
+    GameDetailsField += "```";
+  } else {
+    GameDetailsField += "```bash\nNone```";
   }
 
   // moves players to dead or alive list

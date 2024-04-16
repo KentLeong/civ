@@ -41,6 +41,7 @@ module.exports = {
       state: "init",
       lobbyEvents: [],
       gameEvents: [],
+      notes: [],
       players: [
         {
           discordId: interaction.user.id,

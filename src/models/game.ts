@@ -21,6 +21,7 @@ export const GameSchema = new mongoose.Schema<Game>({
       civ: String
     }
   }],
+  notes: [String],
   gameEvents: [{
     type: Object,
     value: {

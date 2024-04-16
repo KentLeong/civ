@@ -22,6 +22,7 @@ export interface Game {
   settings: GameSettings;
   lobbyEvents: LobbyEvent[];
   gameEvents: GameEvent[];
+  notes: [string];
 }
 
 export interface LobbyEvent {
