@@ -140,6 +140,7 @@ module.exports = {
         victoryType: "draw",
         players: winners,
         turn: turn,
+        createdAt: new Date()
       });
     } else {
       const user = await User.findOne({ discordId: u.id });
@@ -175,6 +176,7 @@ module.exports = {
               name: player.name,
             }],
             turn: turn,
+            createdAt: new Date()
           });
         }
       });
@@ -188,6 +190,7 @@ module.exports = {
             name: player.name,
           }],
           turn: turn,
+          createdAt: new Date()
         });
       } else if (subcommand === "domination") {
         game.gameEvents.push({
@@ -198,6 +201,7 @@ module.exports = {
             name: player.name,
           }],
           turn: turn,
+          createdAt: new Date()
         });
       } else if (subcommand === "culture") {
         game.gameEvents.push({
@@ -208,6 +212,7 @@ module.exports = {
             name: player.name,
           }],
           turn: turn,
+          createdAt: new Date()
         });
       } else if (subcommand === "diplomatic") {
         game.gameEvents.push({
@@ -218,6 +223,7 @@ module.exports = {
             name: player.name,
           }],
           turn: turn,
+          createdAt: new Date()
         });
       }
     }

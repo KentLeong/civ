@@ -197,7 +197,8 @@ module.exports = {
           name: u2.name,
           discordId: u2.discordId
         }],
-        turn: turn
+        turn: turn,
+        createdAt: new Date()
       });
     } else if (interaction.options.getSubcommand() === "peace") {
       // push peace event
@@ -210,7 +211,8 @@ module.exports = {
           name: u2.name,
           discordId: u2.discordId
         }],
-        turn: turn
+        turn: turn,
+        createdAt: new Date()
       });
     } else if (interaction.options.getSubcommand() === "kill") {
       // push kill event
@@ -223,7 +225,8 @@ module.exports = {
           name: u2.name,
           discordId: u2.discordId
         }],
-        turn: turn
+        turn: turn,
+        createdAt: new Date()
       });
       game.players.forEach((player: any) => {
         if (player.discordId === u2.discordId) {
@@ -238,7 +241,8 @@ module.exports = {
           name: u1.name,
           discordId: u1.discordId
         }],
-        turn: turn
+        turn: turn,
+        createdAt: new Date()
       });
       game.players.forEach((player: any) => {
         if (player.discordId === u1.discordId) {

@@ -37,6 +37,7 @@ export interface GameEvent {
   turn: number;
   victoryType?: string;
   players: EventPlayer[];
+  createdAt: Date;
 }
 
 export interface EventPlayer {
