@@ -291,7 +291,7 @@ export const Civs:Array<Civilization> = [
     avoid: ["Tundra"]
   },
   {
-    name: "Belguim",
+    name: "Belgium",
     leader: "Leopold II",
     ability: {
       name: "Colonialist Riches",
