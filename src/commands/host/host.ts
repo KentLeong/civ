@@ -5,8 +5,17 @@ import { perm, expireReply, displayGame, validateChannel } from "../../lib";
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("host")
-    .setDescription("Creates a game lobby"),
+    .setDescription("Creates a game lobby")
+    .addStringOption(option =>
+      option.setName("mode")
+        .setDescription("The game mode.")
+        .setRequired(true)
+        .addChoices(
+          { name: "Normal", value: "normal" },
+          { name: "Ranked", value: "ranked" }
+        )),
   async execute(interaction: ChatInputCommandInteraction) {
+    const mode = interaction.options.getString("mode") || "normal";
     if (!validateChannel(interaction, "game")) {
       await interaction.reply({ content: "Invalid channel.", ephemeral: true });
       expireReply(interaction);
@@ -64,7 +73,7 @@ module.exports = {
       settings: {
         bans: 3,
         pool: 4,
-        mode: "standard",
+        mode: mode,
         ranked: true,
         modVer: "LekMod_v32.2",
         map: "LekMap_v5.1"
