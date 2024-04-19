@@ -65,6 +65,15 @@ module.exports = {
       ban !== "" && ban !== "None" && index === self.indexOf(ban)
     );
 
+    // check if each ban is a valid civ
+    for (let i = 0; i < user.bans.length; i++) {
+      if (!civs.includes(user.bans[i])) {
+        await interaction.reply({ content: "Invalid civ ban", ephemeral: true });
+        expireReply(interaction);
+        return;
+      }
+    }
+
     await user.save();
 
     // check if user is in a game
