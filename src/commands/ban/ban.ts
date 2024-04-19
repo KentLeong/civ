@@ -58,7 +58,8 @@ module.exports = {
     const civban2 = interaction.options.getString("civban2") || "";
     const civban3 = interaction.options.getString("civban3") || "";
 
-    user.bans = [civban1, civban2, civban3];
+    // set first char to uppercase
+    user.bans = [civban1, civban2, civban3].map(ban => ban.charAt(0).toUpperCase() + ban.slice(1).toLowerCase());
 
     // remove empty strings and None and Duplicate bans
     user.bans = user.bans.filter((ban, index, self) =>
@@ -68,7 +69,7 @@ module.exports = {
     // check if each ban is a valid civ
     for (let i = 0; i < user.bans.length; i++) {
       if (!civs.includes(user.bans[i])) {
-        await interaction.reply({ content: "Invalid civ ban", ephemeral: true });
+        await interaction.reply({ content: `${user.bans[i]} is not a valid civ`, ephemeral: true });
         expireReply(interaction);
         return;
       }
