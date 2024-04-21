@@ -1863,7 +1863,7 @@ export const Civs:Array<Civilization> = [
     avoid: []
   },
   {
-    name: "Papal States",
+    name: "Vatican",
     leader: "Urban II",
     ability: {
       name: "The Holy See",

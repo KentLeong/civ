@@ -43,7 +43,7 @@ export default async (interaction: any) => {
   });
 
   // create a banned pool of civs
-  const bannedCivs = game.players.map((player) => player.bans).flat();
+  const bannedCivs:string[] = [];
 
   // pushes all players pools to bannedCivs and selected civ
   game.players.forEach((player) => {
