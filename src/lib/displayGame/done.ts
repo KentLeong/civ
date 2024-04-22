@@ -149,8 +149,15 @@ export default async (interaction:any, game: Game) => {
   ]);
 
   embed.setFooter({ text: "Game started at: "+formatDate(game.startedAt)});
-  await channel.send({ embeds: [embed] }).then(async (msg: any) => {
-    game.messageId = msg.id;
-    await Game.findOneAndUpdate({ messageId: interaction.message.id }, game, { new: true });
-  });
+
+  // search if the message has already been sent to match history channel
+  const messageExists = await channel.messages.fetch(game.messageId).catch(() => null);
+  if (messageExists) {
+    await messageExists.edit({ embeds: [embed] });
+  } else {
+    await channel.send({ embeds: [embed] }).then(async (msg: any) => {
+      game.messageId = msg.id;
+      await Game.findOneAndUpdate({ messageId: interaction.message.id }, game, { new: true });
+    });
+  }
 }
